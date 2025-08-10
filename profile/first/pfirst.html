@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fil2st</title>
+    <style>
+        body,
+        html {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #69acc2;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .firstparagrape {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .firstparagrape::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            background: #69acc2;
+            z-index: 3;
+        }
+
+        .firstparagrape::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            background: #69acc2;
+            z-index: 5;
+        }
+
+        .firstparagrape::before {
+            top: 0;
+        }
+
+        .firstparagrape::after {
+            bottom: 0;
+        }
+
+        #name {
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 300px;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.85);
+            text-transform: uppercase;
+            z-index: 1;
+            white-space: nowrap;
+            text-shadow:
+                5px 5px 15px rgba(0, 0, 0, 0.8),
+                -2px -2px 5px rgba(255, 255, 255, 0.05);
+        }
+
+        #subname {
+            position: fixed;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.85);
+            text-transform: uppercase;
+            z-index: 1;
+            white-space: nowrap;
+            text-shadow:
+                5px 5px 15px rgba(0, 0, 0, 0.8),
+                -2px -2px 5px rgba(255, 255, 255, 0.05);
+            transition: all 0.5 ease forwards;
+        }
+
+        .SIn {
+            animation: In 0.5s ease forwards;
+        }
+
+        .SOut {
+            animation: Out 0.5s ease forwards;
+        }
+
+        @keyframes In {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) translateY(0);
+            }
+        }
+
+        @keyframes Out {
+            from {
+                opacity: 1;
+                transform: translate(-50%, -50%) translateY(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translate(-50%, -50%) translateY(-20px);
+            }
+        }
+
+        .main-first {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70vw;
+            height: 80vh;
+            object-fit: cover;
+            z-index: 4;
+        }
+
+        .bg1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: blur(5px);
+        }
+
+        .secondparagrape {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            background: linear-gradient(270deg,
+                    #69acc2,
+                    #4e8ea8,
+                    #69acc2,
+                    #587f92);
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: backgroundShift 20s ease infinite;
+        }
+
+        @keyframes backgroundShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .secondparagrape::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to bottom, #69acc2, transparent);
+            pointer-events: none;
+            z-index: 6;
+        }
+
+        .Greetings {
+            text-align: start;
+            color: white;
+            font-size: 24px;
+            width: 60%;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .hi {
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .hi::before {
+            content: "G";
+            color: yellow;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-60%, -50%);
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        .thierparagrape {
+            position: relative;
+            z-index: 6;
+            background-color: white;
+        }
+
+        a {
+            color: #571220;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #571220;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.2rem;
+            letter-spacing: 2px;
+            color: #571220;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #571220;
+        }
+
+        h2 {
+            border-left: 5px solid #571220;
+            padding-left: 10px;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .about {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #571220;
+        }
+
+        footer {
+            text-align: center;
+            margin: 3rem 0 1rem;
+            font-size: 0.9rem;
+            color: #571220;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="firstparagrape">
+        <h1 id="name">FIRST</h1>
+        <h1 id="subname">programer</h1>
+        <img src="img/main-first.png" alt="ผมเอง" class="main-first">
+        <img src="img/bg1.png" alt="พื้นหลัง" class="bg1">
+    </div>
+
+    <div class="secondparagrape">
+        <div class="Greetings">
+            <div>
+                <h1 style="font-size: 60px; border-bottom: 1px solid #fff; padding: 20px;" class="hi">reetings.</h1>
+            </div>
+            <p>I am a software developer working with innovative solutions for the OTOP industry,
+                <br>helping local businesses grow through technology and smart applications.
+                <br>Feel free to explore my projects and skills.
+                <br>Thank you for visiting!
+            </p>
+        </div>
+    </div>
+
+    <div class="thierparagrape">
+        <div class="container">
+            <header>
+                <h1>Pattarapon Jankeaw</h1>
+                <p>Fullstack Developer & Creative Photographer / Video Editor</p>
+            </header>
+
+            <section class="about">
+                <h2>About Me</h2>
+                <p>
+                    I'm a software developer who loves creating new things with the latest technology.
+                    I also have skills in photography and video editing.
+                    This makes my work stand out in both functionality and design.
+                </p>
+            </section>
+
+            <footer>
+                ติดต่อ: <a href="mailto:patrapol@example.com">patrapol@example.com</a> | โทร: 08x-xxx-xxxx | <a
+                    href="https://github.com/yourgithub" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </footer>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset;
+            document.querySelector('.chair').style.transform =
+                `translate(-50%, -50%) translateY(${scrollTop * 0.3}px)`;
+
+            document.querySelector('.main-first').style.transform =
+                `translate(-50%, -50%) translateY(${scrollTop * 0.3}px)`;
+        });
+
+        const sub = ["deverloper", "photograper", "programer"]
+
+        let index = 0;
+        const textElement = document.getElementById("subname");
+
+        function changeText() {
+            textElement.classList.remove("SIn")
+            textElement.classList.add("SOut")
+
+            setTimeout(() => {
+                index = (index + 1) % sub.length;
+                textElement.textContent = sub[index]
+
+                textElement.classList.remove("SOut")
+                textElement.classList.add("SIn")
+            }, 500);
+        }
+        setInterval(changeText, 2000);
+
+        textElement.textContent = sub[index];
+        textElement.classList.add("SIn");
+    </script>
+</body>
+
+</html>
