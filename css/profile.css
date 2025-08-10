@@ -5,6 +5,16 @@
 }
 
 .Profile div {
-    padding: 0 25px 0 25px;    
+    padding: 0 25px 0 25px;
+    border: 1px solid black;
 }
+
+.Profile div a {
+  text-decoration: none;
+}
+
+.Profile div a p {
+    text-emphasis-color: ;
+}
+
 
