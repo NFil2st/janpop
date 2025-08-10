@@ -81,7 +81,7 @@
             text-shadow:
                 5px 5px 15px rgba(0, 0, 0, 0.8),
                 -2px -2px 5px rgba(255, 255, 255, 0.05);
-            transition: all 0.5 ease forwards;
+            transition: all 0.5 ease;
         }
 
         .SIn {
@@ -340,10 +340,11 @@
                 textElement.classList.add("SIn")
             }, 500);
         }
-        setInterval(changeText, 2000);
 
         textElement.textContent = sub[index];
         textElement.classList.add("SIn");
+
+        setInterval(changeText, 2000);
     </script>
 </body>
 
