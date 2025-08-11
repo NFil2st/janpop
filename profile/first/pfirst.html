@@ -4,16 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Fil2st</title>
     <style>
         body,
         html {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #69acc2;
+            background: #ffffff;
             color: #e0e0e0;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
         }
+         .navbar {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top: -70px; 
+    left: 0;
+    right: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    transition: top 1s ease-in-out;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+
+  .navbar.visible {
+    top: 0;
+  }
+
+  .navbar nav {
+    display: flex;
+    gap: 20px;
+  }
+
+
+.navbar nav a {
+  color: black;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.navbar nav a:hover { 
+    border-bottom: 1px solid #69acc2;
+  color: #69acc2;
+  outline: none;
+}
 
         .firstparagrape {
             position: relative;
@@ -22,14 +68,30 @@
             overflow: hidden;
         }
 
+        @keyframes crop {
+            0% {
+                height: 50%;
+            }
+
+            40% {
+                height: 15%;
+            }
+
+            100% {
+                height: 10%;
+            }
+        }
+
         .firstparagrape::before {
             content: "";
             position: absolute;
             left: 0;
             width: 100%;
             height: 10%;
-            background: #69acc2;
+            background: #ffffff;
             z-index: 3;
+            animation: crop 4s ease-in forwards;
+            transition: all 0.5s ease-in-out;
         }
 
         .firstparagrape::after {
@@ -38,8 +100,10 @@
             left: 0;
             width: 100%;
             height: 10%;
-            background: #69acc2;
+            background: #ffffff;
             z-index: 5;
+            animation: crop 4s ease-in forwards;
+            transition: all 0.5s ease-in-out;
         }
 
         .firstparagrape::before {
@@ -50,17 +114,48 @@
             bottom: 0;
         }
 
+        .title {
+            margin: 10%;
+            position: relative;
+            width: 80%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            flex-direction: column;
+            z-index: 3;
+            opacity: 0;
+            animation: fadeInTitle 4s ease-in forwards;
+        }
+
+        @keyframes fadeInTitle {
+            0% {
+                opacity: 0;
+            }
+
+            80% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+
         #name {
             position: fixed;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 300px;
-            font-weight: 900;
-            letter-spacing: 0.2em;
+            top: 10%;
+            left: 5%;
+            font-size: 200px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
             color: rgba(255, 255, 255, 0.85);
             text-transform: uppercase;
-            z-index: 1;
             white-space: nowrap;
+            border-bottom: 5px solid rgba(255, 255, 255, 0.85);
+            z-index: 1;
             text-shadow:
                 5px 5px 15px rgba(0, 0, 0, 0.8),
                 -2px -2px 5px rgba(255, 255, 255, 0.05);
@@ -68,63 +163,47 @@
 
         #subname {
             position: fixed;
-            top: 35%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 100px;
-            font-weight: 900;
+            top: 55%;
+            left: 6%;
+            font-size: 50px;
+            font-weight: 300;
             letter-spacing: 0.2em;
             color: rgba(255, 255, 255, 0.85);
             text-transform: uppercase;
-            z-index: 1;
             white-space: nowrap;
+            z-index: 1;
             text-shadow:
                 5px 5px 15px rgba(0, 0, 0, 0.8),
                 -2px -2px 5px rgba(255, 255, 255, 0.05);
             transition: all 0.5 ease;
         }
 
-        .SIn {
-            animation: In 0.5s ease forwards;
-        }
-
-        .SOut {
-            animation: Out 0.5s ease forwards;
-        }
-
-        @keyframes In {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -50%) translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%) translateY(0);
-            }
-        }
-
-        @keyframes Out {
-            from {
-                opacity: 1;
-                transform: translate(-50%, -50%) translateY(0);
-            }
-
-            to {
-                opacity: 0;
-                transform: translate(-50%, -50%) translateY(-20px);
-            }
-        }
-
         .main-first {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70vw;
-            height: 80vh;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             z-index: 4;
+            animation: zoom 4s ease-in-out forwards;
+        }
+
+        @keyframes zoom {
+            0% {
+                opacity: 0;
+                transform: scale(2);
+            }
+
+            40% {
+                opacity: 0;
+                transform: scale(1.4);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .bg1 {
@@ -136,80 +215,31 @@
             object-fit: cover;
             z-index: 0;
             filter: blur(5px);
+            animation: zoomBlur 4s ease-in-out forwards;
         }
 
-        .secondparagrape {
-            position: relative;
-            width: 100%;
-            height: 70vh;
-            background: linear-gradient(270deg,
-                    #69acc2,
-                    #4e8ea8,
-                    #69acc2,
-                    #587f92);
-            z-index: 5;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            animation: backgroundShift 20s ease infinite;
-        }
-
-        @keyframes backgroundShift {
+        @keyframes zoomBlur {
             0% {
-                background-position: 0% 50%;
+                transform: scale(2);
+                filter: blur(0px);
             }
 
-            50% {
-                background-position: 100% 50%;
+            40% {
+                transform: scale(1.4);
+                filter: blur(0px);
             }
 
             100% {
-                background-position: 0% 50%;
+                transform: scale(1);
+                filter: blur(5px);
             }
-        }
-
-        .secondparagrape::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 50px;
-            background: linear-gradient(to bottom, #69acc2, transparent);
-            pointer-events: none;
-            z-index: 6;
-        }
-
-        .Greetings {
-            text-align: start;
-            color: white;
-            font-size: 24px;
-            width: 60%;
-            padding: 20px;
-            margin: 20px;
-        }
-
-        .hi {
-            position: relative;
-            padding-left: 60px;
-        }
-
-        .hi::before {
-            content: "G";
-            color: yellow;
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translate(-60%, -50%);
-            font-size: 60px;
-            font-weight: bold;
         }
 
         .thierparagrape {
             position: relative;
             z-index: 6;
             background-color: white;
+            height: 140vh;
         }
 
         a {
@@ -227,7 +257,6 @@
             padding: 2rem 1rem;
         }
 
-        /* Header */
         header {
             text-align: center;
             padding-bottom: 2rem;
@@ -246,19 +275,17 @@
             color: #571220;
         }
 
-        h2 {
-            border-left: 5px solid #571220;
-            padding-left: 10px;
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
         .about {
+            justify-content: center;
             font-size: 1.1rem;
             line-height: 1.6;
             color: #571220;
+            width: 70%;
+            height: 100vh;
+            display: block;
+            align-items: center;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
         footer {
@@ -267,31 +294,657 @@
             font-size: 0.9rem;
             color: #571220;
         }
+
+        #abouttext {
+            position: relative;
+            padding-left: 40px;
+            font-size: 60px;
+            color: #571220;
+            font-weight: bold;
+            border-left: 5px solid #571220;
+            border-right: 5px solid #571220;
+            padding-left: 10px;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .fourparagrape {
+            position: relative;
+            z-index: 6;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .gallery-container {
+            border: 1px solid #69acc2;
+            border-radius: 20px;
+            background: linear-gradient(270deg, #0033ff, #ffccf2);
+            height: 100vh;
+            width: 63%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            z-index: 6;
+            margin: 30px;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .gallery h1 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .gallery p {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 40px;
+            color: #fff;
+            border-bottom: 1px solid #571220;
+        }
+
+        @keyframes swing {
+            0% {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+
+            100% {
+                transform: perspective(1000px) rotateY(360deg);
+            }
+        }
+
+        .Gline1 {
+            position: relative;
+            width: 80px;
+            height: 100px;
+            transform-style: preserve-3d;
+            animation: swing 30s linear infinite;
+            z-index: 999;
+        }
+
+        .Gline1 span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            top: 0;
+            left: 0;
+            transform-origin: center;
+            transform: rotateY(calc(var(--i) * 72deg)) translateZ(325px);
+            overflow: hidden;
+        }
+
+        .Gline1 span img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .Gline2 {
+            position: relative;
+            width: 80px;
+            height: 100px;
+            transform-style: preserve-3d;
+            animation: swing 25s linear infinite;
+            z-index: 998;
+        }
+
+        .Gline2 span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            top: 0;
+            left: 0;
+            transform-origin: center;
+            transform: rotateY(calc(var(--i) * 120deg)) translateZ(250px);
+            overflow: hidden;
+        }
+
+        .Gline2 span img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .Gline3 {
+            position: relative;
+            width: 80px;
+            height: 100px;
+            transform-style: preserve-3d;
+            animation: swing 20s linear infinite;
+            z-index: 997;
+        }
+
+        .Gline3 span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            top: 0;
+            left: 0;
+            transform-origin: center;
+            transform: rotateY(calc(var(--i) * 90deg)) translateZ(175px);
+            overflow: hidden;
+        }
+
+        .Gline3 span img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .Gline4 {
+            position: relative;
+            width: 80px;
+            height: 100px;
+            transform-style: preserve-3d;
+            animation: swing 15s linear infinite;
+            z-index: 996;
+        }
+
+        .Gline4 span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            top: 0;
+            left: 0;
+            transform-origin: center;
+            transform: rotateY(calc(var(--i) * 180deg)) translateZ(100px);
+            overflow: hidden;
+        }
+
+        .Gline4 span img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .Gline1 span img:hover {
+            transform: scale(1.4);
+        }
+
+        .Gline2 span img:hover {
+            transform: scale(1.4);
+        }
+
+
+        .Gline3 span img:hover {
+            transform: scale(1.4);
+        }
+
+
+        .Gline4 span img:hover {
+            transform: scale(1.4);
+        }
+
+
+        .prop {
+            position: relative;
+            width: 30%;
+            height: 30%;
+            z-index: 20;
+        }
+
+        .fiveparagrape {
+            border-top: 1px solid #571220;
+            position: relative;
+            z-index: 6;
+            background-color: white;
+            height: 100vh;
+            padding-top: 30px;
+        }
+
+        .projects {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            font-weight: 600px;
+            color: #571220;
+            font-size: 70px;
+            font-family: cursive;
+        }
+
+        .cards-container {
+            display: flex;
+            gap: -30px;
+            padding: 60px 20px;
+            align-items: flex-start;
+            min-width: 1400px;
+            justify-content: center;
+        }
+
+        .character-card {
+            width: 280px;
+            height: 380px;
+            background: linear-gradient(145deg, #ffffff, #f5f5f5);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            margin-left: -50px;
+            z-index: 1;
+        }
+
+        .character-card:first-child {
+            margin-left: 0;
+        }
+
+        .character-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            z-index: 10;
+        }
+
+        .first-card {
+            transform: translateY(-20px);
+        }
+
+        .second-card {
+            transform: translateY(40px);
+        }
+
+        .third-card {
+            transform: translateY(-10px);
+        }
+
+        .fourth-card {
+            transform: translateY(30px);
+        }
+
+        .fifth-card {
+            transform: translateY(-30px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .first-card .card-image {
+            background: url('img/serv/ser1.png') center/cover;
+        }
+
+        .second-card .card-image {
+            background: url('img/serv/ser2.png') center/cover;
+        }
+
+        .third-card .card-image {
+            background: url('img/serv/ser3.png') center/cover;
+        }
+
+        .fourth-card .card-image {
+            background: url('img/serv/ser4.png') center/cover;
+        }
+
+        .fifth-card .card-image {
+            background: url('img/serv/ser5.png') center/cover;
+        }
+
+        .card-info {
+            padding: 20px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: white;
+        }
+
+        .character-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .character-subtitle {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .card-accent {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-dot:nth-child(1) {
+            top: 20%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .floating-dot:nth-child(2) {
+            top: 60%;
+            right: 25%;
+            animation-delay: 1s;
+        }
+
+        .floating-dot:nth-child(3) {
+            bottom: 30%;
+            left: 70%;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .cards-container {
+                min-width: auto;
+                gap: 20px;
+                padding: 40px 10px;
+            }
+
+            .character-card {
+                width: 160px;
+                height: 220px;
+            }
+
+            .card-image {
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .primary-title {
+                font-size: 2.2em;
+            }
+
+            .panel-heading {
+                font-size: 1.8em;
+            }
+
+            .content-panel {
+                padding: 20px;
+            }
+        }
+
+        .sixparagrape {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            background-color: white;
+            height: 130vh;
+            padding-top: 30px;
+        }
+
+        .sixparagrape h2 {
+            color: #571220;
+            font-size: 36px;
+            text-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2a74da;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .services-container {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
+
+        .service-card {
+            flex: 0 0 280px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 8px 18px rgba(42, 116, 218, 0.15);
+            padding: 25px;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 16px 28px rgba(42, 116, 218, 0.3);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            color: #2a74da;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            color: #ff7f50;
+        }
+
+        .service-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1c3d7a;
+        }
+
+        .service-desc {
+            font-size: 15px;
+            line-height: 1.4;
+            color: #555;
+        }
+
+        .work-together {
+            margin-top: 70px;
+            width: 80%;
+            background: linear-gradient(45deg, #ff7f50, #ffb347);
+            border-radius: 25px;
+            padding: 40px 30px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 127, 80, 0.6);
+        }
+
+        .work-together h2 {
+            color: #fff;
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+        }
+
+        .work-together p {
+            font-size: 20px;
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+            line-height: 1.5;
+        }
+
+        .btn-join {
+            background: #fff;
+            color: #ff7f50;
+            font-weight: 700;
+            padding: 14px 40px;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 5px 12px rgba(255, 127, 80, 0.5);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-join:hover {
+            background-color: #ff7f50;
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 127, 80, 0.8);
+        }
+
+        .services-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .services-container::-webkit-scrollbar-thumb {
+            background-color: #2a74da;
+            border-radius: 4px;
+        }
+
+        .services-container {
+            display: flex;
+            gap: 30px;
+            overflow: hidden;
+            scrollbar-width: none;
+            border-left: 2px solid #1c3d7a;
+            border-right: 2px solid #1c3d7a;
+        }
+
+        .services-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .services-track {
+            display: flex;
+            width: 90vw;
+            gap: 30px;
+            animation: scroll-left 20s linear infinite;
+        }
+
+        .services-track:hover> :not(:hover) {
+            filter: blur(3px);
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .service-card {
+            flex: 0 0 280px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 8px 18px rgba(42, 116, 218, 0.15);
+            padding: 25px;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 16px 28px rgba(42, 116, 218, 0.3);
+        }
     </style>
 </head>
 
 <body>
-    <div class="firstparagrape">
-        <h1 id="name">FIRST</h1>
-        <h1 id="subname">programer</h1>
+    <div class="navbar" id="navbar">
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#gallerys">Gallery</a>
+    <a href="#project">Project</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
+    <div class="firstparagrape" id="home">
+        <div class="title">
+            <h1 id="name">FIRST</h1>
+            <h1 id="subname">programer</h1>
+        </div>
         <img src="img/main-first.png" alt="ผมเอง" class="main-first">
         <img src="img/bg1.png" alt="พื้นหลัง" class="bg1">
     </div>
 
-    <div class="secondparagrape">
-        <div class="Greetings">
-            <div>
-                <h1 style="font-size: 60px; border-bottom: 1px solid #fff; padding: 20px;" class="hi">reetings.</h1>
-            </div>
-            <p>I am a software developer working with innovative solutions for the OTOP industry,
-                <br>helping local businesses grow through technology and smart applications.
-                <br>Feel free to explore my projects and skills.
-                <br>Thank you for visiting!
-            </p>
-        </div>
-    </div>
-
-    <div class="thierparagrape">
+    <div class="thierparagrape" id="portfolio">
         <div class="container">
             <header>
                 <h1>Pattarapon Jankeaw</h1>
@@ -299,52 +952,362 @@
             </header>
 
             <section class="about">
-                <h2>About Me</h2>
-                <p>
-                    I'm a software developer who loves creating new things with the latest technology.
-                    I also have skills in photography and video editing.
-                    This makes my work stand out in both functionality and design.
-                </p>
-            </section>
+                <h2 id="abouttext">About Me</h2>
+                <div class="max-w-5xl mx-auto p-8 space-y-8">
 
-            <footer>
-                ติดต่อ: <a href="mailto:patrapol@example.com">patrapol@example.com</a> | โทร: 08x-xxx-xxxx | <a
-                    href="https://github.com/yourgithub" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </footer>
+                    <div class="grid grid-cols-8 gap-6 overflow-visible">
+
+                        <div class="col-span-6 relative rounded-lg overflow-hidden h-80 shadow-lg
+            transform transition duration-300 hover:scale-105 flex">
+
+                            <div class="absolute inset-0 flex items-center justify-end overflow-hidden">
+                                <img src="img/intod.png" alt="School"
+                                    class="h-full object-cover object-center transform scale-150 relative z-0 shadow-xl border-r-4 border-white-200 rounded-lg" />
+
+                                <div class="absolute inset-0 bg-gradient-to-r from-yellow-300 via-yellow-300/50 to-transparent 
+              mix-blend-soft-light pointer-events-none z-10"></div>
+                            </div>
+                            <div class="absolute inset-y-0 left-6 flex flex-col justify-center z-10 text-black w-1/2">
+                                <h3 class="text-2xl font-extrabold mb-2">Photography</h3>
+                                <p class="text-lg">
+                                    Passionate about capturing authentic moments through still and motion photography.
+                                    Skilled in using both natural and studio lighting to create compelling visuals for
+                                    events, portraits, and creative projects. Experience includes event coverage,
+                                    promotional shoots, and personal artistic work, with attention to composition, mood,
+                                    and storytelling.
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="col-span-2 bg-gradient-to-br from-green-200 via-green-300 to-yellow-200 rounded-lg p-6
+                text-black shadow-lg flex flex-col items-center text-center h-80
+                transform transition duration-300 hover:scale-105">
+
+                            <div class="text-4xl font-extrabold mb-6">🌱 Skills</div>
+
+                            <ul class="flex flex-col space-y-3 w-full max-w-xs">
+                                <li class="bg-green-100 rounded-full px-4 py-2 shadow-md flex items-center justify-center
+                   text-green-800 font-semibold hover:bg-green-200 transition cursor-pointer">
+                                    🌻 Java
+                                </li>
+                                <li class="bg-green-100 rounded-full px-4 py-2 shadow-md flex items-center justify-center
+                   text-green-800 font-semibold hover:bg-green-200 transition cursor-pointer">
+                                    🌿 JavaScript
+                                </li>
+                                <li class="bg-green-100 rounded-full px-4 py-2 shadow-md flex items-center justify-center
+                   text-green-800 font-semibold hover:bg-green-200 transition cursor-pointer">
+                                    🍃 SQL
+                                </li>
+                                <li class="bg-green-100 rounded-full px-4 py-2 shadow-md flex items-center justify-center
+                   text-green-800 font-semibold hover:bg-green-200 transition cursor-pointer">
+                                    🌾 Tailwind CSS
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-8 gap-6">
+                        <div class="col-span-5 bg-gradient-to-br from-pink-200 via-pink-300 to-pink-100 rounded-lg p-4
+                text-black shadow-lg flex items-center justify-center h-60
+                transform transition duration-300 hover:scale-105 items-start">
+                            <div class="max-w-md ml-6">
+                                <div class="text-4xl font-extrabold mb-4">2011 - 2025</div>
+                                <p class="text-gray-800 text-lg leading-relaxed">
+                                    (2011 – 2016) <span class="text-gray-900 font-semibold">at Muang Lamphun
+                                        Kindergarten School</span><br />
+                                    (2017 – 2018) <span class="text-gray-900 font-semibold">at Kamthiang Anusorn
+                                        School</span><br />
+                                    (2019 – 2024) <span class="text-gray-900 font-semibold">at Wattanothai Payap
+                                        School</span><br />
+                                    (2025 – Present) <span class="text-gray-900 font-semibold">at Chiang Mai
+                                        University</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Box 4 -->
+                        <div class="col-span-3 bg-gradient-to-br from-purple-200 via-purple-300 to-purple-100 rounded-lg p-4
+                text-black shadow-lg flex items-center justify-center h-60
+                transform transition duration-300 hover:scale-105">
+                            <div class="text-center max-w-sm">
+                                <div class="text-2xl font-extrabold mb-3">Experience</div>
+                                <p class="text-gray-800">
+                                    During my writing experience, I had the opportunity to create articles, promotional
+                                    content, and reports for the One Tambon One Product (OTOP) program.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
-    <script>
-        window.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset;
-            document.querySelector('.chair').style.transform =
-                `translate(-50%, -50%) translateY(${scrollTop * 0.3}px)`;
+    <div class="fourparagrape" id="gallerys">
+        <div class="gallery-container">
+            <div class="gallery">
+                <h1>THROUGH MY LENS</h1>
+                <p>GALLERY</p>
+            </div>
+            <div class="Gline1">
+                <span style="--i:1"><img src="img/gal/p14.jpg" alt=""></span>
+                <span style="--i:2"><img src="img/gal/p13.jpg" alt=""></span>
+                <span style="--i:3"><img src="img/gal/p12.png" alt=""></span>
+                <span style="--i:4"><img src="img/gal/p11.jpg" alt=""></span>
+                <span style="--i:5"><img src="img/gal/p10.jpg" alt=""></span>
+            </div>
 
-            document.querySelector('.main-first').style.transform =
-                `translate(-50%, -50%) translateY(${scrollTop * 0.3}px)`;
-        });
+            <div class="Gline2">
+                <span style="--i:1"><img src="img/gal/p9.jpg" alt=""></span>
+                <span style="--i:2"><img src="img/gal/p8.jpg" alt=""></span>
+                <span style="--i:3"><img src="img/gal/p7.jpg" alt=""></span>
+            </div>
+
+            <div class="Gline3">
+                <span style="--i:1"><img src="img/gal/p6.jpg" alt=""></span>
+                <span style="--i:2"><img src="img/gal/p5.jpg" alt=""></span>
+                <span style="--i:3"><img src="img/gal/p4.jpg" alt=""></span>
+                <span style="--i:4"><img src="img/gal/p3.jpg" alt=""></span>
+            </div>
+
+            <div class="Gline4">
+                <span style="--i:1"><img src="img/gal/p2.jpg" alt=""></span>
+                <span style="--i:2"><img src="img/gal/p1.jpg" alt=""></span>
+            </div>
+            <span class="prop"><img src="img/table.png" alt=""></span>
+        </div>
+    </div>
+    <div class="fiveparagrape" id="project">
+        <div class="projects">
+            <h1>MY-CREATION</h1>
+        </div>
+        <div class="cards-container">
+            <div class="character-card first-card">
+                <div class="card-image">
+                    <div class="floating-elements">
+                        <div class="floating-dot"></div>
+                        <div class="floating-dot"></div>
+                        <div class="floating-dot"></div>
+                    </div>
+                    <div class="card-accent">🔒</div>
+                </div>
+                <div class="card-info">
+                    <div class="character-name">Full Stack Website</div>
+                    <div class="character-subtitle">All Of Above</div>
+                </div>
+            </div>
+
+            <div class="character-card second-card">
+                <div class="card-image">
+                    <div class="floating-elements">
+                        <div class="floating-dot"></div>
+                        <div class="floating-dot"></div>
+                        <div class="floating-dot"></div>
+                    </div>
+                    <div class="card-accent">⚡</div>
+                </div>
+                <div class="card-info">
+                    <div class="character-name">E-Commerce Website</div>
+                    <div class="character-subtitle">Gaming shop for gamer</div>
+                </div>
+            </div>
+
+            <div class="character-card third-card">
+                <div class="card-image">
+                    <div class="floating-elements">
+                        <div class="floating-dot"></div>
+                        <div class="floating-dot"></div>
+                        <div class="floating-dot"></div>
+                    </div>
+                    <div class="card-accent">🎯</div>
+                </div>
+                <div class="card-info">
+                    <div class="character-name">Network Connection</div>
+                    <div class="character-subtitle">BEST PRACTICES</div>
+                </div>
+            </div>
+
+            <div class="character-card fourth-card">
+                <div class="card-image">
+                    <div class="floating-elements">
+                        <div class="floating-dot"></div>
+                        <div class="floating-dot"></div>
+                        <div class="floating-dot"></div>
+                    </div>
+                    <div class="card-accent">🔧</div>
+                </div>
+                <div class="card-info">
+                    <div class="character-name">Mobile Application</div>
+                    <div class="character-subtitle">DESIGN PATTERNS</div>
+                </div>
+            </div>
+
+            <div class="character-card fifth-card">
+                <div class="card-image">
+                    <div class="floating-elements">
+                        <div class="floating-dot"></div>
+                        <div class="floating-dot"></div>
+                        <div class="floating-dot"></div>
+                    </div>
+                    <div class="card-accent">📋</div>
+                </div>
+                <div class="card-info">
+                    <div class="character-name">Datebase</div>
+                    <div class="character-subtitle">SQL & PHP</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sixparagrape" id="services">
+        <div>
+            <h2>Our Services</h2>
+            <div class="services-container" aria-label="Services carousel">
+                <div class="services-track">
+                    <div class="service-card" tabindex="0">
+                        <div class="service-icon">💻</div>
+                        <div class="service-title">Dev Solutions</div>
+                        <div class="service-desc">Crafting modern, scalable software...</div>
+                    </div>
+                    <div class="service-card" tabindex="0">
+                        <div class="service-icon">🛍️</div>
+                        <div class="service-title">OTOP Products</div>
+                        <div class="service-desc">Showcasing authentic local treasures...</div>
+                    </div>
+                    <div class="service-card" tabindex="0">
+                        <div class="service-icon">📸</div>
+                        <div class="service-title">Professional Photography</div>
+                        <div class="service-desc">Capturing moments that tell your story...</div>
+                    </div>
+                    <div class="service-card" tabindex="0">
+                        <div class="service-icon">🚀</div>
+                        <div class="service-title">Startup Mentoring</div>
+                        <div class="service-desc">Guiding new ventures to success...</div>
+                    </div>
+                    <div class="service-card" tabindex="0">
+                        <div class="service-icon">🌱</div>
+                        <div class="service-title">Sustainability Consulting</div>
+                        <div class="service-desc">Helping businesses embrace eco-friendly...</div>
+                    </div>
+                    <div class="service-card" tabindex="0">
+                        <div class="service-icon">🎨</div>
+                        <div class="service-title">Creative Design</div>
+                        <div class="service-desc">Bringing your brand to life with vibrant visuals...</div>
+                    </div>
+                    <div class="service-card" tabindex="0">
+                        <div class="service-icon">💻</div>
+                        <div class="service-title">Dev Solutions</div>
+                        <div class="service-desc">Crafting modern, scalable software...</div>
+                    </div>
+                    <div class="service-card" tabindex="0">
+                        <div class="service-icon">🛍️</div>
+                        <div class="service-title">OTOP Products</div>
+                        <div class="service-desc">Showcasing authentic local treasures...</div>
+                    </div>
+                    <div class="service-card" tabindex="0">
+                        <div class="service-icon">📸</div>
+                        <div class="service-title">Professional Photography</div>
+                        <div class="service-desc">Capturing moments that tell your story...</div>
+                    </div>
+                    <div class="service-card" tabindex="0">
+                        <div class="service-icon">🚀</div>
+                        <div class="service-title">Startup Mentoring</div>
+                        <div class="service-desc">Guiding new ventures to success...</div>
+                    </div>
+                    <div class="service-card" tabindex="0">
+                        <div class="service-icon">🌱</div>
+                        <div class="service-title">Sustainability Consulting</div>
+                        <div class="service-desc">Helping businesses embrace eco-friendly...</div>
+                    </div>
+                    <div class="service-card" tabindex="0">
+                        <div class="service-icon">🎨</div>
+                        <div class="service-title">Creative Design</div>
+                        <div class="service-desc">Bringing your brand to life with vibrant visuals...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="work-together" role="region" aria-label="Let’s Work Together Invitation" id="contact">
+            <div class="container">
+            <h2>Let’s Work Together!</h2>
+            <p>
+                The journey might be ending here, but the connections last forever. Join hands with us for exciting
+                projects, bright ideas, and a future full of possibilities.
+                Together, we create, inspire, and leave a mark that lasts beyond the moment.
+            </p>
+            <button class="btn-join" onclick="alert('Thanks for reaching out! Let’s build something amazing.')">
+                Join the Movement 🚀
+            </button>
+        </div>
+    </div>
+    <footer>
+        ติดต่อ: <a href="mailto:pattarapon_ja@cmu.ac.th">pattarapon_ja@cmu.ac.th</a> | โทร: 012-345-6789 | <a
+            href="https://github.com/NFil2st" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </footer>
+
+    <script>
+
+    const navbar = document.getElementById('navbar');
+
+navbar.classList.remove('visible');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY === 0) {
+      navbar.classList.remove('visible');
+    } else {
+      navbar.classList.add('visible');
+    }
+  });
+  
+    navbar.forEach(navbar => {
+    navbar.addEventListener('click', e => {
+      e.preventDefault();
+
+      const targetId = navbar.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+      navbar.classList.remove('visible');
+    });
+  });
 
         const sub = ["deverloper", "photograper", "programer"]
 
         let index = 0;
+        let charIndex = 0;
+        let isDeleting = false;
         const textElement = document.getElementById("subname");
 
-        function changeText() {
-            textElement.classList.remove("SIn")
-            textElement.classList.add("SOut")
+        function typeEffect() {
+            const currentWord = sub[index];
+            let displayText;
 
-            setTimeout(() => {
+            if (isDeleting) {
+                displayText = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                displayText = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            textElement.textContent = displayText;
+
+            let typingSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+
+                isDeleting = true;
+                typingSpeed = 1500;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
                 index = (index + 1) % sub.length;
-                textElement.textContent = sub[index]
+                typingSpeed = 300;
+            }
 
-                textElement.classList.remove("SOut")
-                textElement.classList.add("SIn")
-            }, 500);
+            setTimeout(typeEffect, typingSpeed);
         }
 
-        textElement.textContent = sub[index];
-        textElement.classList.add("SIn");
-
-        setInterval(changeText, 2000);
+        typeEffect();
     </script>
 </body>
 
