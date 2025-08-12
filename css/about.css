@@ -68,15 +68,19 @@ body {
     0% {
         background-position: 0% 50%;
     }
+
     25% {
         background-position: 100% 25%;
     }
+
     50% {
         background-position: 100% 100%;
     }
+
     75% {
         background-position: 50% 75%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -100,7 +104,7 @@ body {
     width: 100%;
     height: auto;
     border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .about-text {
@@ -142,10 +146,10 @@ body {
 
 .about-image img:hover {
     transform: scale(1.05);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
 .about-text h2:hover {
     color: #d4af37;
-        font-size: 46px;
+    font-size: 46px;
 }
