@@ -1,20 +1,240 @@
-.Profile {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.navbar nav {
     display: flex;
-    justify-content: center;
+    gap: 15px;
+}
+
+.navbar nav a {
+    background: rgba(115, 170, 191, 0.9);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.navbar nav a:hover {
+    background: white;
+    color: rgba(115, 170, 191, 1);
+    transform: translateY(-2px);
+    border: 1px solid rgba(115, 170, 191, 1);
+}
+
+.header {
+    min-height: 20vh;
+    display: flex;
     align-items: center;
+    justify-content: start;
+    position: relative;
+    background-size: 400% 400%;
 }
 
-.Profile div {
-    padding: 0 25px 0 25px;
-    border: 1px solid black;
+.header h1 {
+    color: #69acc2;
+    padding-left: 10%;
+    font-size: 70px;
+    font-weight: 700;
 }
 
-.Profile div a {
-  text-decoration: none;
+.header h1 .highlight {
+    color: #cbb62e;
+}
+
+ /* Profile container */
+        .Profile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            height: 400px;
+        }
+
+        /* Individual profile rectangles */
+.Profile > div {
+    position: relative;
+    width: 180px;
+    height: 350px;
+    cursor: pointer;
+    overflow: visible;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+        /* Alternating positions - up and down */
+        .Profile > div:nth-child(odd) {
+            align-self: flex-end; /* ล่าง */
+        }
+
+        .Profile > div:nth-child(even) {
+            align-self: flex-start; /* บน */
+        }
+
+        /* Alternating colors - blue and yellow */
+        .Profile > div:nth-child(odd) {
+            background-color: #6ba3c0; /* สีฟ้า */
+        }
+
+        .Profile > div:nth-child(even) {
+            background-color: #c0a86b; /* สีเหลือง/ทอง */
+        }
+
+        /* Big horizontal red line through the middle */
+        .Profile::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -30%;
+            right: -30%;
+            height: 20%;
+            background: linear-gradient(-45deg, #8B1538, #4A1C2E, #6B2C45, #8B1538, #5A1F35, #3A1525);
+            transform: translateY(-50%);
+            z-index: -1;
+        }
+
+        /* Dark red separator bars */
+        .Profile > div::after {
+            display: none;
+        }
+
+        /* Remove separator after last item */
+        .Profile > div:last-child::after {
+            display: none;
+        }
+
+        /* Hover effects */
+  .Profile > div:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+        .Profile > div:nth-child(odd):hover {
+            background-color: #5a92af;
+        }
+
+        .Profile > div:nth-child(even):hover {
+            background-color: #af975a;
+        }
+
+        /* Link styling */
+.Profile a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    text-decoration: none;
+    color: black;
+}
+
+        /* Name styling */
+        .Profile p:first-child {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Student ID styling */
+        .Profile p:last-of-type {
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+.Profile a img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    border-radius: 8px;
+}
+
+.info-box {
+    position: absolute;
+    bottom: 15px;
+    left: -15px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 6px;
+    max-width: 100%;
+    z-index: 1;
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.7);
+}
+.info-box p {
+  color: #000;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .Profile {
+                gap: 6px;
+            }
+            
+            .Profile > div {
+                width: 90px;
+                height: 150px;
+            }
+            
+            .Profile p:first-child {
+                font-size: 0.8rem;
+            }
+            
+            .Profile p:last-of-type {
+                font-size: 0.7rem;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+        }
 
-
-
-
+        @media (max-width: 480px) {
+            .Profile {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .Profile > div {
+                width: 100px;
+                height: 140px;
+            }
+            
+            .Profile > div::after {
+                display: none;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
