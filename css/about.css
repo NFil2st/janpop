@@ -1,0 +1,187 @@
+/* Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Sans&display=swap');
+
+/* Color palette */
+:root {
+	--color-white: #FFFFFF;
+	--color-light-blue: #69ACC2;
+	--color-dark-red: #60212E;
+	--color-gold-yellow: #CBB62E;
+
+	--font-poppins: 'Poppins', sans-serif;
+	--font-sans: 'Roboto Sans', sans-serif;
+}
+
+/* Reset & base */
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	font-family: var(--font-sans);
+	background-color: var(--color-white);
+	color: var(--color-dark-red);
+	line-height: 1.6;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+header.about-header {
+	background-color: var(--color-dark-red);
+	padding: 1rem 2rem;
+	box-shadow: 0 4px 6px rgb(0 0 0 / 0.25);
+}
+
+/* About Us heading container */
+h1.about-title {
+	font-family: var(--font-poppins);
+	font-weight: 700;
+	font-size: 4.5rem;
+	color: var(--color-white);
+	margin: 0;
+			-webkit-user-select: none;
+			user-select: none;
+	display: flex;
+	align-items: center;
+	column-gap: 0.2rem;
+	letter-spacing: 0.1em;
+	text-shadow:
+		2px 2px 0 var(--color-dark-red),
+		3px 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Specific stylized 'A' with gold-yellow shadow for 2 colored letter */
+h1.about-title span.letter-a {
+	color: var(--color-gold-yellow);
+	text-shadow: 2px 2px 1px #4b3a17;
+	font-size: 5rem;
+	font-weight: 800;
+	line-height: 1;
+	margin-right: -0.07em;
+	letter-spacing: 0;
+}
+
+/* Container for main content flex row */
+main.about-main {
+	flex-grow: 1;
+	max-width: 1200px;
+	margin: 3rem auto;
+	display: flex;
+	align-items: center;
+	gap: 4rem;
+	padding: 0 1rem;
+}
+
+/* Left image container */
+.image-container {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	filter: drop-shadow(0 3px 6px rgba(0,0,0,0.15));
+}
+.image-container img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 1rem;
+	object-fit: contain;
+	box-shadow: 0 0 18px 6px rgba(108, 172, 199, 0.35);
+	background: var(--color-white);
+}
+
+/* Right text content container */
+.content-container {
+	flex: 1.3;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+}
+
+/* Subtitle with two colors different for OTOP */
+h2.subtitle {
+		font-family: var(--font-poppins);
+		font-weight: 700;
+		font-size: 2rem;
+		margin: 0 0 1rem 0;
+		-webkit-user-select: none;
+		user-select: none;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+}
+
+/* OTOP coloring style */
+.otop-o {
+	color: var(--color-gold-yellow);
+	margin-right: 0.1rem;
+	letter-spacing: 0.1em;
+}
+.otop-top {
+	color: var(--color-light-blue);
+	letter-spacing: 0.2em;
+}
+
+/* Paragraph styling */
+.content-paragraph {
+		font-family: var(--font-sans);
+		font-size: 1.1rem;
+		line-height: 1.5;
+		color: var(--color-dark-red);
+		max-width: 600px;
+		white-space: pre-line;
+		text-align: center;
+		margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+		main.about-main {
+			flex-direction: column;
+			gap: 2rem;
+			max-width: 100vw;
+			width: 100%;
+			padding: 0;
+		}
+		.image-container {
+			width: 100%;
+			justify-content: center;
+			align-items: center;
+		}
+		.image-container img {
+			max-width: 95vw;
+			width: 100%;
+			height: auto;
+			border-radius: 0.7rem;
+			box-shadow: 0 0 10px 2px rgba(108, 172, 199, 0.25);
+		}
+		.content-container {
+			max-width: 100vw;
+			width: 100%;
+			align-items: center;
+			padding: 0 1rem;
+		}
+		h1.about-title {
+			font-size: 2.2rem;
+			flex-wrap: wrap;
+			text-align: center;
+			width: 100%;
+		}
+		h2.subtitle {
+			font-size: 1.2rem;
+			width: 100%;
+			justify-content: center;
+			text-align: center;
+		}
+			.content-paragraph {
+				font-size: 1rem;
+				max-width: 100vw;
+				width: 100%;
+				text-align: center;
+				padding: 0 0.5rem;
+				margin: 0 auto;
+			}
+}
