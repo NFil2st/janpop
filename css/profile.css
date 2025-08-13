@@ -40,7 +40,7 @@ body {
     border: 1px solid rgba(115, 170, 191, 1);
 }
 
-.header {
+.Member {
     min-height: 20vh;
     display: flex;
     align-items: center;
@@ -49,14 +49,14 @@ body {
     background-size: 400% 400%;
 }
 
-.header h1 {
+.Member h1 {
     color: #69acc2;
     padding-left: 10%;
     font-size: 70px;
     font-weight: 700;
 }
 
-.header h1 .highlight {
+.Member h1 .Memberhighlight {
     color: #cbb62e;
 }
 
@@ -213,7 +213,7 @@ body {
                 font-size: 0.7rem;
             }
             
-            .header h1 {
+            .Member h1 {
                 font-size: 2.5rem;
             }
         }
@@ -234,7 +234,7 @@ body {
                 display: none;
             }
             
-            .header h1 {
+            .Member h1 {
                 font-size: 2rem;
             }
         }
