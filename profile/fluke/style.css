@@ -192,6 +192,89 @@ section {
     margin-bottom: 3rem;
 }
 
+.skills {
+    padding: 8rem 12%;
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.skill-item {
+    background-color: white;
+    border: 2px solid #571220;
+    /* สี dark ของ theme */
+    border-radius: 2rem;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    cursor: default;
+}
+
+.skill-item i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #571220;
+    /* primary color */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.skill-item h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #2DBA4E;
+}
+
+.skill-item p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: #571220;
+}
+
+/* Hover effect */
+.skill-item:hover {
+    transform: translateY(-10px) scale(1.03);
+    background-color: #571220;
+    /* dark background */
+    color: #ffffff;
+}
+
+.skill-item:hover i {
+    color: white;
+    /* accent color */
+}
+
+.skill-item:hover p {
+    color: #ffffff;
+}
+
+/* สกิลไอคอนย่อย (HTML, CSS, JS, React) */
+.skill-item i.fa-html5,
+.skill-item i.fa-css,
+.skill-item i.fa-js,
+.skill-item i.fa-react,
+.skill-item i.fa-flutter {
+    font-size: 1.8rem;
+    margin: 0.3rem;
+    color: #571220;
+    /* primary */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.skill-item:hover i.fa-html5,
+.skill-item:hover i.fa-css,
+.skill-item:hover i.fa-js,
+.skill-item:hover i.fa-react,
+.skill-item:hover i.fa-flutter {
+    color: white;
+    /* accent */
+    transform: scale(1.2);
+}
+
 .experience-info {
     display: flex;
     align-items: center;
@@ -407,6 +490,9 @@ footer ul li a {
     }
     .experience-info img {
         width: 70vw;
+    }
+    .skills-list {
+            grid-template-columns: repeat(1, 1fr);
     }
 }
 
