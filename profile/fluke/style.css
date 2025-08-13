@@ -138,7 +138,7 @@ section {
 }
 
 .info-box span {
-    background: linear-gradient(to right, #2DBA4E, #57C785);
+    background: #69acc2;
     background-clip: text;
     color: transparent;
     font-size: 2rem;
@@ -226,7 +226,7 @@ section {
     font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 1rem;
-    color: #2DBA4E;
+    color: #69acc2;
 }
 
 .skill-item p {
@@ -319,7 +319,7 @@ section {
 .grid-card span {
     font-size: 1.5rem;
     font-weight: 500;
-    background: linear-gradient(to right, #2DBA4E, #57C785);
+    background: #69acc2;
     background-clip: text;
     color: transparent;
 }
@@ -351,7 +351,7 @@ section {
 }
 
 .projects-card img {
-    width: 24vw;
+    width: 20vw;
     border-radius: 1rem;
     transition: transform 0.3s ease;
 }
