@@ -8,6 +8,11 @@
     list-style: none;
 }
 
+body {
+    background-color: #fff;
+    color: #571220;
+}
+
 header {
     position: fixed;
     top: 1rem;
@@ -57,7 +62,7 @@ li a::before {
     top: 25px;
     border-radius: 1rem;
     transition: 0.3s ease-in-out;
-    background: linear-gradient(to right, rgb(0, 157, 255), rgb(255, 0, 255));
+    background: linear-gradient(to right, #2DBA4E, #57C785);
 }
 
 li a:hover::before {
@@ -74,11 +79,11 @@ li a:hover::before {
     cursor: pointer;
     text-wrap: nowrap;
     transition: 0.3s ease-in-out;
-    background: linear-gradient(to right, rgb(0, 157, 255), rgb(255, 0, 255));
+    background: linear-gradient(to right, #2DBA4E, #57C785);
 }
 
 .visit-btn:hover {
-    background: linear-gradient(to right,rgb(255, 0, 255), rgb(0, 157, 255));
+    background: linear-gradient(to right, #57C785, #2DBA4E);
     transform: scale(1.03);
 }
 
@@ -133,7 +138,7 @@ section {
 }
 
 .info-box span {
-    background: linear-gradient(to right, rgb(255, 0, 255), rgb(0, 157, 255));
+    background: #69acc2;
     background-clip: text;
     color: transparent;
     font-size: 2rem;
@@ -147,17 +152,17 @@ section {
 .btn {
     border-radius: 3rem;
     padding: 0.5rem 1.5rem;
-    border: 2px solid black;
+    border: 2px solid #571220;
     cursor: pointer;
     font-weight: 500;
     text-wrap: nowrap;
     transition: 0.2s ease-in-out;
-    color: black;
+    color: #571220;
 }
 
 .btn:hover {
-    background-color: black;
-    color: white;
+    background-color: #571220;
+    color: white;   
 }
 
 .socials {
@@ -187,6 +192,89 @@ section {
     margin-bottom: 3rem;
 }
 
+.skills {
+    padding: 8rem 12%;
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.skill-item {
+    background-color: white;
+    border: 2px solid #571220;
+    /* สี dark ของ theme */
+    border-radius: 2rem;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    cursor: default;
+}
+
+.skill-item i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #571220;
+    /* primary color */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.skill-item h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #69acc2;
+}
+
+.skill-item p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: #571220;
+}
+
+/* Hover effect */
+.skill-item:hover {
+    transform: translateY(-10px) scale(1.03);
+    background-color: #571220;
+    /* dark background */
+    color: #ffffff;
+}
+
+.skill-item:hover i {
+    color: white;
+    /* accent color */
+}
+
+.skill-item:hover p {
+    color: #ffffff;
+}
+
+/* สกิลไอคอนย่อย (HTML, CSS, JS, React) */
+.skill-item i.fa-html5,
+.skill-item i.fa-css,
+.skill-item i.fa-js,
+.skill-item i.fa-react,
+.skill-item i.fa-flutter {
+    font-size: 1.8rem;
+    margin: 0.3rem;
+    color: #571220;
+    /* primary */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.skill-item:hover i.fa-html5,
+.skill-item:hover i.fa-css,
+.skill-item:hover i.fa-js,
+.skill-item:hover i.fa-react,
+.skill-item:hover i.fa-flutter {
+    color: white;
+    /* accent */
+    transform: scale(1.2);
+}
+
 .experience-info {
     display: flex;
     align-items: center;
@@ -206,7 +294,7 @@ section {
 }
 
 .grid-card {
-    border: 2px solid black;
+    border: 2px solid #571220;
     border-radius: 3rem;
     padding: 3rem;
     display: flex;
@@ -219,7 +307,7 @@ section {
 
 .grid-card:hover {
     transform: scale(1.02);
-    background-color: black;
+    background-color: #571220;
     color: white;
 }
 
@@ -231,7 +319,7 @@ section {
 .grid-card span {
     font-size: 1.5rem;
     font-weight: 500;
-    background: linear-gradient(to right, #009dff, #ff00ff);
+    background: #69acc2;
     background-clip: text;
     color: transparent;
 }
@@ -257,14 +345,19 @@ section {
 }
 
 .projects-card:hover {
-    background-color: black;
+    background-color: #571220;
     color: white;
     transform: translateY(-10px) scale(1.02);
 }
 
 .projects-card img {
-    width: 24vw;
+    width: 20vw;
     border-radius: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.projects-card:hover img {
+    transform: scale(1.05);
 }
 
 .projects-card:hover .btn {
@@ -275,7 +368,7 @@ section {
 .projects-card:hover .btn:hover {
     border: 2px solid white;
     background-color: white;
-    color: black;
+    color: #571220;
 }
 
 .projects-card h3 {
@@ -397,6 +490,9 @@ footer ul li a {
     }
     .experience-info img {
         width: 70vw;
+    }
+    .skills-list {
+            grid-template-columns: repeat(1, 1fr);
     }
 }
 
