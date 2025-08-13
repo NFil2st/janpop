@@ -20,6 +20,7 @@
 
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -32,7 +33,7 @@
 
     <!-- About Section -->
 
-    <section id="about" class="about">
+    <section id="about" class="about hidden">
       <div class="about-container">
         <img src="images/profile.jpg" alt="profile" />
 
@@ -40,13 +41,13 @@
           <div class="text">
             <h3>Hi, I'm</h3>
             <h1>Kornnapat Seethong</h1>
-            <span>Frontend Developer</span>
+            <span>Programmer</span>
           </div>
 
-          <div class="btn-group">
+          <!-- <div class="btn-group">
             <div class="btn">Download CV</div>
             <div class="btn">Contact</div>
-          </div>
+          </div> -->
 
           <div class="socials">
             <a href="https://github.com/FlukeKS" target="_blank">
@@ -60,20 +61,52 @@
       </div>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="skills hidden">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-list">
+        <div class="skill-item">
+          <i class="fa-solid fa-code"></i>
+          <h3>Web Development</h3>
+          <i class="fa-brands fa-html5"></i>
+          <i class="fa-brands fa-css"></i>
+          <i class="fa-brands fa-js"></i>
+          <i class="fa-brands fa-react"></i>
+        </div>
+        <div class="skill-item">
+          <i class="fa-solid fa-database"></i>
+          <h3>Database Management</h3>
+          <p>MySQL | PostgreSQL | Firebase</p>
+        </div>
+        <div class="skill-item">
+          <i class="fa-solid fa-mobile-alt"></i>
+          <h3>Mobile Development</h3>
+          <i class="fa-brands fa-flutter"></i>
+        </div>
+        <div class="skill-item">
+          <i class="fa-solid fa-robot"></i>
+          <h3>Robotics</h3>
+          <p>Arduino | Raspberry Pi</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Experience Section -->
 
-    <section id="experience" class="experience">
+    <section id="experience" class="experience hidden">
       <h2 class="section-title">Experience</h2>
 
       <div class="experience-info">
         <div class="grid">
           <div class="grid-card">
             <i class="fa-solid fa-code"></i>
-            <span>Frontend Developer</span>
-            <h3>5 Years</h3>
+            <span>Programming</span>
+            <h3>8 Years</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
-              molestiae.
+              Skilled in web and application development using HTML, CSS,
+              JavaScript, and object-oriented programming. Experienced in
+              building interactive websites, responsive designs, and efficient,
+              user-focused solutions.
             </p>
           </div>
 
@@ -82,8 +115,10 @@
             <span>UX/UI Designer</span>
             <h3>1 Years</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
-              molestiae.
+              Experienced in designing intuitive and user-friendly interfaces
+              for web and mobile applications. Skilled in wireframing,
+              prototyping, and creating visually appealing layouts that enhance
+              user experience.
             </p>
           </div>
 
@@ -92,8 +127,10 @@
             <span>React Developer</span>
             <h3>1 Years</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
-              molestiae.
+              Experienced in building dynamic and responsive web applications
+              using React.js. Skilled in component-based architecture, state
+              management, and integrating APIs to create interactive user
+              interfaces.
             </p>
           </div>
 
@@ -102,8 +139,10 @@
             <span>Robot Developer</span>
             <h3>5 Years</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
-              molestiae.
+              Experienced in designing, programming, and controlling robots for
+              various applications. Skilled in hardware integration, automation,
+              and problem-solving to build efficient and functional robotic
+              systems.
             </p>
           </div>
         </div>
@@ -114,35 +153,62 @@
 
     <!-- Projects Section -->
 
-    <section id="projects" class="projects">
+    <section id="projects" class="projects hidden">
       <h2 class="section-title">Projects</h2>
 
       <div class="projects-grid">
         <div class="projects-card">
           <img src="images/projects1.png" alt="Project 1" />
           <h3>SANGSOM</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p>
+            A sleek online marketplace offering a curated selection of sneakers
+            and sports footwear from around the world, with an intuitive
+            browsing experience and responsive design.
+          </p>
           <div class="btn-group">
-            <div class="btn">View</div>
-            <div class="btn">Github Repo</div>
+            <a
+              href="https://github.com/FlukeKS/SangSom"
+              target="_blank"
+              class="btn"
+              >Github Repo</a
+            >
           </div>
         </div>
 
         <div class="projects-card">
-          <img src="images/project2.jpg" alt="Project 2" />
-          <h3>Project 2</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="btn-group">
+          <img src="images/database.png" alt="database" />
+          <h3>PostgreSQL</h3>
+          <p>
+            A project focused on designing and implementing relational databases
+            using PostgreSQL. Includes data modeling, query optimization, and
+            management of structured datasets for reliable and efficient
+            operations.
+          </p>
+          <!-- <div class="btn-group">
             <div class="btn">View</div>
             <div class="btn">Github Repo</div>
-          </div>
+          </div> -->
+        </div>
+
+        <div class="projects-card">
+          <img src="images/olf.jpg" alt="onlyfood" />
+          <h3>OnlyFoods</h3>
+          <p>
+            A high school project app that allows students to order food online
+            within the school, reducing waiting time in cafeteria lines and
+            improving the overall lunch experience.
+          </p>
+          <!-- <div class="btn-group">
+            <div class="btn">View</div>
+            <div class="btn">Github Repo</div>
+          </div> -->
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
 
-    <section id="contact" class="contact">
+    <section id="contact" class="contact hidden">
       <div class="input-box">
         <h2 class="section-title">Contact Me</h2>
 
