@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROFILE NATTHIDA</title>
+    <link rel="stylesheet" href="paum.css">
+</head>
+<body>
+
+    <!-- เมนูนำทาง -->
+    <nav>
+        <div class="logo">PROFILE NATTHIDA</div>
+        <ul>
+            <li><a href="#about">ABOUT ME</a></li>
+            <li><a href="#skills">SKILL</a></li>
+            <li><a href="#performance">PERFORMANCE</a></li>
+            <li><a href="#contact">CONTACT ME</a></li>
+        </ul>
+    </nav>
+
+    <!-- ส่วน Header -->
+    <header class="hero">
+        <div class="bg-slide"></div>
+        <div class="bg-slide"></div>
+        <div class="bg-slide"></div>
+        <div class="bg-slide"></div>
+
+        <h1>Hello, I am <span>NATTHIDA</span></h1>
+        <p>Web Developer | UI/UX Designer | Student</p>
+        <a href="#contact" class="btn">CONTACT ME</a>
+    </header>
+
+    <!-- เกี่ยวกับฉัน -->
+    <section id="about">
+        <h2>
+           <span class = "BB" >A</span><span class = "BB" >B</span><span class = "BB" >O</span><span class = "BB" >U</span><span class = "BB" >T</span> <span class = "BB" >M</span><span class = "BB" >E</span>
+        </h2>
+        <p>
+            I am a second-year student in the College of Arts, Media and Technology, majoring in Digital Industrial Integration, and currently in the process of being a web developer intern.
+        </p>
+    </section>
+
+    <!-- ทักษะ -->
+    <section id="skills">
+        <h2>
+            <span class = "BB" >S</span><span class = "BB" >K</span><span class = "BB" >I</span><span class = "BB" >L</span><span class = "BB" >L</span>
+        </h2>
+        <div class="skill-list">
+            <div class="skill">HTML / CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Java</div>
+            <div class="skill">UI/UX Design</div>
+        </div>
+    </section>
+
+    <!-- Performance -->
+    <section id="performance">
+        <h2>
+            <span class = "BB" >P</span><span class = "BB" >E</span><span class = "BB" >R</span><span class = "BB" >F</span><span class = "BB" >O</span><span class = "BB" >R</span><span class = "BB" >M</span><span class = "BB" >A</span><span class = "BB" >N</span><span class = "BB" >C</span><span class = "BB" >E</span>
+        </h2>
+        <div class="performance-container">
+            <button class="scroll-btn left">&#10094;</button>
+
+            <div class="performance-grid">
+                <div class="card" onclick="openImage('img/ProductProject.png')">
+                    <img src="img/ProductProject.png" alt="Project 1">
+                    <h3>Website of the Babor Core Teak Project Group</h3>
+                    <p>Show product information on the website</p>
+                </div>
+                <div class="card" onclick="openImage('img/เข้าระบบ.png')">
+                    <img src="img/เข้าระบบ.png" alt="Project 2">
+                    <h3>Login web page</h3>
+                    <p>Collect website visitor information</p>
+                </div>
+                <div class="card" onclick="openImage('img/open1.png')">
+                    <img src="img/open1.png" alt="Project 3">
+                    <h3>Poster design</h3>
+                    <p>Poster design</p>
+                </div>
+                <div class="card" onclick="openImage('img/open2.png')">
+                    <img src="img/open2.png" alt="Project 4">
+                    <h3>Poster design</h3>
+                    <p>Poster design</p>
+                </div>
+                <div class="card" onclick="openImage('img/แสงสุดท้าย.png')">
+                    <img src="img/แสงสุดท้าย.png" alt="Project 5">
+                    <h3>Design logo website</h3>
+                    <p>Design a website logo, Last Light</p>
+                </div>
+            </div>
+
+            <button class="scroll-btn right">&#10095;</button>
+        </div>
+    </section>
+
+
+        </div>
+    </section>
+
+    <!-- ติดต่อ -->
+    <section id="contact">
+        <h2>
+            <span class = "BB" >C</span><span class = "BB" >O</span><span class = "BB" >N</span><span class = "BB" >T</span><span class = "BB" >A</span><span class = "BB" >C</span><span class = "BB" >T</span> <span class = "BB" >M</span><span class = "BB" >E</span>
+        </h2>
+        <form>
+            <input type="text" placeholder="Your name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>@672110231 NATTHIDA TANORTHONG</p>
+    </footer>
+
+    <script src="paum.js"></script>
+</body>
+</html>
