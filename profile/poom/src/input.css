@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  background: radial-gradient(circle, #1b2735, #090a0f);
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Ensure  the width */
+  height: 100%;
+  /* Ensure canvas fully covers the height */
+}
+
+.typewriter {
+  border-right: 2px solid #60A5FA;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: #60A5FA;
+  }
+}
