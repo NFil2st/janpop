@@ -1,11 +1,8 @@
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-        navLinks.classList.remove('active');
-    });
+const menuIcon = document.getElementById('menu-icon');
+const navLinks = document.querySelector('.nav-links');
+
+menuIcon.addEventListener('click', () => {
+    navLinks.classList.toggle('active'); // สลับการแสดงผลของเมนู
 });
 
 const observer = new IntersectionObserver(entries => {
@@ -25,9 +22,12 @@ document.querySelector('.visit-btn').onclick = () => {
     window.open('https://github.com/FlukeKS', '_blank');
 };
 
-document.querySelector('.contact .btn').onclick = () => {
+document.querySelector('.contact-form').addEventListener('submit', e => {
+    e.preventDefault();
     alert('Thank you for contacting me! I will reply soon.');
-};
+    e.target.reset();
+});
+
 
 const cards = document.querySelectorAll('.certificates-card img');
 const popup = document.getElementById('popup');
@@ -51,6 +51,13 @@ popupClose.addEventListener('click', () => {
 // ปิด popup เมื่อคลิกรอบๆ
 popup.addEventListener('click', e => {
     if(e.target === popup) {
+        popup.classList.remove('show');
+    }
+});
+
+// กด esc ปิด
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
         popup.classList.remove('show');
     }
 });

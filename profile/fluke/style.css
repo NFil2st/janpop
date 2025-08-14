@@ -194,6 +194,8 @@ section {
 
 .skills {
     padding: 8rem 12%;
+    background-color: #f9f9f9;
+    text-align: center;
 }
 
 .skills-list {
@@ -324,6 +326,11 @@ section {
     color: transparent;
 }
 
+.projects {
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -412,6 +419,65 @@ section {
 
 .certificates-card:hover img {
     transform: scale(1.05);
+}
+
+.contact {
+    padding: 3rem 1rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #571220;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #571220;
+}
+
+.btn {
+    background-color: #571220;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #cbb62e;
+    color: #571220;
 }
 
 /* Popup container */
