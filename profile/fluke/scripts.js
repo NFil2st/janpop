@@ -28,3 +28,29 @@ document.querySelector('.visit-btn').onclick = () => {
 document.querySelector('.contact .btn').onclick = () => {
     alert('Thank you for contacting me! I will reply soon.');
 };
+
+const cards = document.querySelectorAll('.certificates-card img');
+const popup = document.getElementById('popup');
+const popupImg = document.getElementById('popup-img');
+const popupClose = document.querySelector('.popup-close');
+
+// คลิกรูป
+cards.forEach(card => {
+    card.addEventListener('click', () => {
+        popupImg.src = card.src;
+        popupImg.alt = card.alt;
+        popup.classList.add('show');
+    });
+});
+
+// ปิด popup
+popupClose.addEventListener('click', () => {
+    popup.classList.remove('show');
+});
+
+// ปิด popup เมื่อคลิกรอบๆ
+popup.addEventListener('click', e => {
+    if(e.target === popup) {
+        popup.classList.remove('show');
+    }
+});

@@ -376,6 +376,87 @@ section {
     font-weight: 500;
 }
 
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.certificates-card {
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #571220;
+    /* ใช้สีธีม */
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    background-color: white;
+    /* ทำให้รูปเด่น */
+}
+
+.certificates-card:hover {
+    background-color: #571220;
+    border-color: #ffffff;
+    transform: translateY(-5px) scale(1.02);
+}
+
+.certificates-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.certificates-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Popup container */
+.popup {
+    display: none;
+    /* ซ่อนเริ่มต้น */
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+/* เมื่อ popup เปิด */
+.popup.show {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* รูปใน popup */
+.popup img {
+    max-width: auto;
+    max-height: 90vh;
+    border-radius: 1rem;
+    display: block;
+}
+
+/* ปุ่มปิด */
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    color: #571220;
+    cursor: pointer;
+    font-weight: bold;
+}
+
 .input-box {
     display: flex;
     flex-direction: column;
