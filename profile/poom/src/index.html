@@ -4,106 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/profile/poom/src/style.css">
     <title>Document</title>
 </head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        height: 100vh;
-        background: radial-gradient(circle, #1b2735, #090a0f);
-    }
-
-    canvas {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        /* Ensure  the width */
-        height: 100%;
-        /* Ensure canvas fully covers the height */
-    }
-
-    .typewriter {
-        border-right: 2px solid #60A5FA;
-        white-space: nowrap;
-        overflow: hidden;
-        display: inline-block;
-        animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-        from {
-            width: 0
-        }
-
-        to {
-            width: 100%
-        }
-    }
-
-    @keyframes blink-caret {
-
-        from,
-        to {
-            border-color: transparent
-        }
-
-        50% {
-            border-color: #60A5FA;
-        }
-    }
-</style>
 
 <body>
-    <canvas id="cosmosCanvas"></canvas>
-    <!-- Header Section -->
-    <header class="bg-blue-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-            <div class="flex items-center justify-between">
-
-                <!-- Navigation Menu -->
-                <nav class="hidden md:flex space-x-10 text-lg">
-                    <a href="#" class="hover:text-gray-300 transition-all">Home</a>
-                    <a href="#services" class="hover:text-gray-300 transition-all">Services</a>
-                    <a href="#about" class="hover:text-gray-300 transition-all">About Us</a>
-                    <a href="#contact" class="hover:text-gray-300 transition-all">Contact</a>
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-blue-600">About</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600">Services</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600">Contact</a>
                 </nav>
 
-                <!-- Mobile Menu Button (for smaller screens) -->
-                <div class="md:hidden flex items-center">
-                    <button id="menu-button" class="text-white focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16"></path>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-gray-700 focus:outline-none">
+                        <!-- Hamburger Icon -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
             </div>
+        </div>
 
-            <!-- Mobile Navigation Menu -->
-            <div id="mobile-menu" class="md:hidden mt-5 hidden space-y-4">
-                <a href="#" class="block text-lg hover:text-gray-300 transition-all">Home</a>
-                <a href="#services" class="block text-lg hover:text-gray-300 transition-all">Services</a>
-                <a href="#about" class="block text-lg hover:text-gray-300 transition-all">About Us</a>
-                <a href="#contact" class="block text-lg hover:text-gray-300 transition-all">Contact</a>
-            </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2">
+            <a href="#" class="block text-gray-700 hover:text-blue-600">About</a>
+            <a href="#" class="block text-gray-700 hover:text-blue-600">Services</a>
+            <a href="#" class="block text-gray-700 hover:text-blue-600">Contact</a>
         </div>
     </header>
+
     <section id="home"
         class="flex flex-col lg:flex-row items-center justify-center text-center py-16 px-6 bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white min-h-screen">
-        <div class="w-full sm:w-full lg:w-2/3 flex flex-col justify-center items-center">
-            <h1 class="text-4xl md:text-4xl font-bold leading-tight mt-20 pb-4">
+        <canvas id="cosmosCanvas" class="py-16 px-6 min-h-screen"></canvas>
+        <div class="w-full sm:w-full lg:w-1/2 flex flex-col justify-center items-center">
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight mt-20 pb-4">
                 Hello!
                 <div class="py-2"></div>
                 <span class="text-blue-400 whitespace-nowrap">
@@ -118,17 +59,38 @@
                 </div>
             </div>
 
-            <p class="max-w-xl text-gray-300 text-lg leading-relaxed text-center italic">
+            <p class="max-w-xl text-gray-300 text-lg leading-relaxed text-center">
 
-                I am currently working as a Developer
-                My expertise includes programming languages such as JavaScript, Python, and Java, as well as system
-                design and developing efficient applications that can support high-demand usage.
-                I am passionate about learning new technologies and continuously improving my skills to create solutions
-                that fully meet the needs of the organization.
-                Nice to meet you, and I look forward to working together. </p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod, nisl sit amet convallis
+                gravida, lectus justo suscipit nulla, non ultrices purus nulla id ex. Nulla facilisi. Donec auctor urna
+                eu odio facilisis, nec fringilla metus facilisis. Proin et libero eu justo interdum sagittis vel id
+                arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
 
 
+            <div class="flex gap-6 mt-8">
+
+                <a href="https://www.facebook.com/poottichai.phansang.5" target="_blank" rel="noopener noreferrer"
+                    class="p-3 rounded-full bg-white/10 hover:bg-blue-600 transition duration-300"
+                    aria-label="Follow me on Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M22.675 0H1.325C.593 0 0 .593 0 1.326v21.348C0 23.407.593 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.463.099 2.794.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.326V1.326C24 .593 23.407 0 22.675 0z" />
+                    </svg>
+                </a>
+
+                <a href="https://github.com/Poottichai-Poom" target="_blank" rel="noopener noreferrer"
+                    class="p-3 rounded-full bg-white/10 hover:bg-gray-400 transition duration-300"
+                    aria-label="Check out my GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+            </div>
         </div>
+
         <div class="hidden lg:flex lg:w-1/2 justify-center items-center pt-20">
             <div
                 class="w-60 h-60 rounded-full border-2 border-gray-600 shadow-lg bg-gray-700 flex items-center justify-center overflow-hidden">
@@ -136,110 +98,63 @@
             </div>
         </div>
     </section>
+    <footer class="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-gray-300 py-10">
+        <div
+            class="container mx-auto px-6 md:px-12 lg:px-20 flex flex-col md:flex-row justify-between items-center md:items-start space-y-8 md:space-y-0">
+
+            <!-- Brand Info -->
+            <div class="text-center md:text-left w-full md:w-1/3 pr-10">
+                <h2 class="text-2xl font-bold text-white">BrandName</h2>
+                <p class="mt-2 text-gray-100">Creating stunning web experiences with modern design principles.</p>
+            </div>
+
+            <!-- Useful Links -->
+            <div class="w-full md:w-1/3 flex flex-col items-center md:items-start space-y-3">
+                <h3 class="text-lg font-semibold text-white">Quick Links</h3>
+                <a href="https://portfolio-ayyam.vercel.app/" class="hover:text-white transition duration-300">About
+                    Us</a>
+                <a href="https://portfolio-ayyam.vercel.app/"
+                    class="hover:text-white transition duration-300">Services</a>
+                <a href="https://portfolio-ayyam.vercel.app/"
+                    class="hover:text-white transition duration-300">Contact</a>
+                <a href="https://portfolio-ayyam.vercel.app/" class="hover:text-white transition duration-300">Privacy
+                    Policy</a>
+            </div>
+
+            <!-- Social Media -->
+            <div class="w-full md:w-1/3 flex justify-center md:justify-end space-x-4">
+                <a href="https://portfolio-ayyam.vercel.app/"
+                    class="text-gray-400 hover:text-white transition duration-300 transform hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M22 12a10 10 0 10-11 9.95V14.9h-3v-3h3v-2.2c0-3 1.8-4.6 4.4-4.6 1.3 0 2.6.2 2.6.2v3h-1.5c-1.5 0-2 .9-2 1.8V12h3.4l-.5 3H15v7.05A10 10 0 0022 12z" />
+                    </svg>
+                </a>
+                <a href="https://portfolio-ayyam.vercel.app/"
+                    class="text-gray-400 hover:text-white transition duration-300 transform hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M20.4 4.6c-.8.4-1.7.6-2.6.8.9-.6 1.6-1.4 1.9-2.5-.9.5-1.8.9-2.8 1.1-.8-.9-2-1.4-3.2-1.4-2.4 0-4.3 2-4.3 4.4 0 .3 0 .7.1 1C7.1 7.8 4.2 6.2 2.2 3.8c-.4.6-.6 1.4-.6 2.2 0 1.5.7 2.8 1.8 3.6-.7 0-1.4-.2-2-.5v.1c0 2.1 1.5 3.8 3.4 4.2-.4.1-.7.2-1.1.2-.3 0-.5 0-.8-.1.5 1.6 2 2.8 3.7 2.8-1.4 1.1-3.1 1.7-5 1.7-.3 0-.6 0-.8-.1 1.8 1.2 3.9 1.9 6.2 1.9 7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2.1-2.2z" />
+                    </svg>
+                </a>
+                <a href="https://portfolio-ayyam.vercel.app/"
+                    class="text-gray-400 hover:text-white transition duration-300 transform hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.2c-5.4 0-9.8 4.4-9.8 9.8 0 4.9 3.6 8.9 8.3 9.7V14.9H7.9V12h2.6V9.8c0-2.6 1.6-4 3.9-4 1.1 0 2 .1 2.3.1v2.7h-1.6c-1.3 0-1.6.6-1.6 1.5V12h3.2l-.5 2.9H13v6.8c4.7-.8 8.3-4.8 8.3-9.7 0-5.4-4.4-9.8-9.8-9.8z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="text-center text-gray-100 text-sm mt-8">
+            &copy; 2024 BrandName. All rights reserved.
+        </div>
+    </footer>
 
 
 
-
-
-
-
-
-    <script>
-        const canvas = document.getElementById('cosmosCanvas');
-        const ctx = canvas.getContext('2d');
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        const particles = [];
-        const numParticles = 100;
-
-        class Particle {
-            constructor(x, y, radius, speed) {
-                this.x = x;
-                this.y = y;
-                this.radius = radius;
-                this.speed = speed;
-                this.angle = Math.random() * Math.PI * 2;
-            }
-
-            update() {
-                this.x += Math.cos(this.angle) * this.speed;
-                this.y += Math.sin(this.angle) * this.speed;
-
-                // Bounce off edges
-                if (this.x < 0 || this.x > canvas.width) this.angle = Math.PI - this.angle;
-                if (this.y < 0 || this.y > canvas.height) this.angle = -this.angle;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-                ctx.fill();
-            }
-        }
-
-        // Initialize particles
-        for (let i = 0; i < numParticles; i++) {
-            particles.push(
-                new Particle(
-                    Math.random() * canvas.width,
-                    Math.random() * canvas.height,
-                    Math.random() * 4 + 1,
-                    Math.random() * 0.5 + 0.2
-                )
-            );
-        }
-
-        // Connect particles
-        function connectParticles() {
-            for (let a = 0; a < particles.length; a++) {
-                for (let b = a + 1; b < particles.length; b++) {
-                    const dist = Math.hypot(
-                        particles[a].x - particles[b].x,
-                        particles[a].y - particles[b].y
-                    );
-
-                    if (dist < 120) {
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / 120})`;
-                        ctx.lineWidth = 0.7;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[a].x, particles[a].y);
-                        ctx.lineTo(particles[b].x, particles[b].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        // Animation Loop
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-            connectParticles();
-            requestAnimationFrame(animate);
-        }
-
-        // Start Animation
-        animate();
-
-        // Mobile Menu Toggle
-        const menuButton = document.getElementById('menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
+    <script src="/profile/poom/src/script.js"></script>
 </body>
 
 </html>
