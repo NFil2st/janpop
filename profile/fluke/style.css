@@ -194,6 +194,8 @@ section {
 
 .skills {
     padding: 8rem 12%;
+    background-color: #f9f9f9;
+    text-align: center;
 }
 
 .skills-list {
@@ -324,6 +326,11 @@ section {
     color: transparent;
 }
 
+.projects {
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -374,6 +381,146 @@ section {
 .projects-card h3 {
     font-size: 2rem;
     font-weight: 500;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.certificates-card {
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #571220;
+    /* ใช้สีธีม */
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    background-color: white;
+    /* ทำให้รูปเด่น */
+}
+
+.certificates-card:hover {
+    background-color: #571220;
+    border-color: #ffffff;
+    transform: translateY(-5px) scale(1.02);
+}
+
+.certificates-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.certificates-card:hover img {
+    transform: scale(1.05);
+}
+
+.contact {
+    padding: 3rem 1rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #571220;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #571220;
+}
+
+.btn {
+    background-color: #571220;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #cbb62e;
+    color: #571220;
+}
+
+/* Popup container */
+.popup {
+    display: none;
+    /* ซ่อนเริ่มต้น */
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+/* เมื่อ popup เปิด */
+.popup.show {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* รูปใน popup */
+.popup img {
+    max-width: auto;
+    max-height: 90vh;
+    border-radius: 1rem;
+    display: block;
+}
+
+/* ปุ่มปิด */
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    color: #571220;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .input-box {
