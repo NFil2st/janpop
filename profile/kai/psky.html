@@ -28,18 +28,13 @@
             z-index: 1000;
             transition: top 0.5s ease-in-out;
         }
-
-        .navbar.visible {
-            top: 0;
-        }
-
+        .navbar.visible { top: 0; }
         .navbar nav {
             display: flex;
             justify-content: center;
             gap: 30px;
             align-items: center;
         }
-
         .navbar nav a {
             color: white;
             text-decoration: none;
@@ -48,208 +43,239 @@
             border-radius: 12px;
             transition: background-color 0.3s ease;
         }
+        .navbar nav a:hover { background-color: #69acc2; color: white; }
 
-        .navbar nav a:hover {
-            background-color: #69acc2; /* Highlight color */
-            color: white;
-        }
-
-        /* Hero Section */
+        /* Hero Section (พื้นหลังเดิม) */
         .firstparagrape {
             position: relative;
             width: 100%;
             height: 100vh;
-            background: url('img/hero-background.jpg') center/cover; /* Change the background image */
+            background: url('img/hero-background.jpg') center/cover;
             background-size: cover;
             z-index: 1;
         }
 
-        /* Text animation for Name and Subname */
-        .title {
-            position: absolute;
-            bottom: 10%;
-            right: 5%;
-            text-align: right;
-            z-index: 2;
-            animation: fadeInTitle 3s ease-out forwards;
+        /* === Home / Profile Card (scoped) === */
+        #home .profile-card {
+            background: #69acc2;
+            width: 56px; height: 56px;
+            position: absolute; left: 50%; top: 50%;
+            z-index: 2; overflow: hidden; opacity: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            animation:
+              home-init 0.5s 0.2s cubic-bezier(0.55,0.055,0.675,0.19) forwards,
+              home-moveDown 1s 0.8s cubic-bezier(0.6,-0.28,0.735,0.045) forwards,
+              home-moveUp 1s 1.8s cubic-bezier(0.175,0.885,0.32,1.275) forwards,
+              home-materia 0.5s 2.7s cubic-bezier(0.86,0,0.07,1) forwards;
         }
-
-        @keyframes fadeInTitle {
-            0% {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        #home .profile-card header {
+            width: 179px; height: 280px; padding: 40px 20px 30px 20px;
+            display: inline-block; float: left;
+            border-right: 2px dashed #e2e8f0;
+            background: #ffffff; color: #1a202c;
+            margin-top: 50px; opacity: 0; text-align: center;
+            animation: home-moveIn 1s 3.1s ease forwards;
         }
-
-        #name {
-            font-size: 48px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.85);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            animation: slideIn 2s ease-out forwards;
+        #home .profile-card header h1 { color: #69acc2; font-size: 24px; margin: 8px 0 4px; }
+        #home .profile-card header h2 { color: #2d3748; font-size: 16px; margin: 0 0 8px; }
+        #home .profile-card header a {
+            display: inline-block; text-align: center; position: relative; margin: 18px 30px;
         }
-
-        @keyframes slideIn {
-            0% {
-                transform: translateX(50px);
-            }
-            100% {
-                transform: translateX(0);
-            }
+        #home .profile-card header a::after {
+            position: absolute; content: ""; bottom: 3px; right: 3px;
+            width: 20px; height: 20px; border: 4px solid #ffffff; transform: scale(0);
+            background: linear-gradient(#69acc2 0%, #69acc2 50%, #cbd5e1 50%, #cbd5e1 100%);
+            border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            animation: home-scaleIn 0.3s 3.5s ease forwards;
         }
-
-        #subname {
-            font-size: 24px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.75);
-            text-transform: capitalize;
-            animation: slideIn 2s ease-out forwards 1s; /* Animation delay for subname */
+        #home .profile-card header a > img {
+            width: 120px; max-width: 100%; border-radius: 50%;
+            transition: box-shadow 0.3s ease; box-shadow: 0 0 0 8px rgba(0,0,0,0.06);
         }
-
-        /* About Me Section */
-        .about-me {
-            padding: 60px 0;
-            background-color: #f7fafc;
-            animation: slideInUp 1s ease-out;
+        #home .profile-card header a:hover > img { box-shadow: 0 0 0 12px rgba(0,0,0,0.1); }
+        #home .profile-card .profile-bio {
+            width: 175px; height: 180px; display: inline-block; float: right;
+            padding: 50px 20px 30px 20px; background: #ffffff; color: #2d3748;
+            margin-top: 50px; text-align: center; opacity: 0; animation: home-moveIn 1s 3.1s ease forwards;
         }
-
-        @keyframes slideInUp {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        #home .profile-card .profile-social-links {
+            width: 218px; display: inline-block; float: right; margin: 0;
+            padding: 15px 20px; background: #ffffff; margin-top: 50px;
+            text-align: center; opacity: 0; box-sizing: border-box; animation: home-moveIn 1s 3.1s ease forwards;
         }
-
-        .about-me h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 20px;
-            text-align: center;
+        #home .profile-card .profile-social-links li { list-style: none; margin: -5px 0 0 0; padding: 0; float: left; width: 25%; text-align: center; }
+        #home .profile-card .profile-social-links li a { display: inline-block; width: 24px; height: 24px; padding: 6px; position: relative; border-radius: 50%; }
+        #home .profile-card .profile-social-links li a svg {
+            width: 24px; height: 24px; fill: #69acc2; transition: transform 0.2s ease, opacity 0.2s ease; opacity: 0.95;
         }
+        #home .profile-card .profile-social-links li a:hover svg { transform: scale(1.08); opacity: 1; }
 
-        .about-me p {
-            font-size: 1rem;
-            color: #4a5568;
-            line-height: 1.6;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        /* Keyframes (scoped) */
+        @keyframes home-init { 0% { width: 0; height: 0; } 100% { width: 56px; height: 56px; opacity: 1; } }
+        @keyframes home-moveDown { 0% { top: 50%; } 50% { top: 40%; } 100% { top: 100%; } }
+        @keyframes home-moveUp { 0% { background: #69acc2; top: 100%; } 50% { top: 40%; } 100% { top: 50%; background: #e2e8f0; } }
+        @keyframes home-materia { 0% { background: #e2e8f0; } 50% { border-radius: 4px; } 100% { width: 440px; height: 280px; background: #ffffff; border-radius: 12px; } }
+        @keyframes home-moveIn { 0% { margin-top: 50px; opacity: 0; } 100% { opacity: 1; margin-top: -20px; } }
+        @keyframes home-scaleIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
 
-        /* Skills Section */
+        /* ===== Skills Section ===== */
         .skills {
             padding: 60px 0;
-            background-color: #edf2f7;
-            animation: slideInUp 1s ease-out 0.5s;
+            background-color: #111827;
         }
-
         .skills h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 20px;
-            text-align: center;
+            font-size: 2.5rem; font-weight: 700; color: #e2e8f0; margin-bottom: 28px; text-align: center;
         }
-
-        .skills-list {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            animation: fadeInSkills 1.5s ease-out;
-        }
-
-        @keyframes fadeInSkills {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .skills-item {
-            background-color: #69acc2;
-            color: #fff;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-transform: capitalize;
-            transition: transform 0.3s ease;
-        }
-
-        .skills-item:hover {
-            transform: scale(1.1);
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            padding: 60px 0;
-            background-color: #2d3748; /* Dark gray background */
-        }
-
-        .portfolio-header h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 20px;
-        }
-
-        .portfolio-grid {
+        .skills-grid {
+            max-width: 1100px; margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            padding: 0 16px;
         }
-
-        .portfolio-item {
-            background-color: #4a5568;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        .skills .our-team {
+            padding: 30px 0 40px;
+            background-color: #2d3748;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            border-radius: 14px;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.35);
         }
+        .skills .picture { display:inline-block; height:130px; width:130px; margin-bottom:50px; z-index:1; position:relative; }
+        .skills .picture::before {
+            content:""; width:100%; height:0; border-radius:50%;
+            background-color:#69acc2; position:absolute; bottom:135%; right:0; left:0;
+            opacity:.9; transform:scale(3); transition:all .3s linear;
+        }
+        .skills .our-team:hover .picture::before { height:100%; }
+        .skills .picture::after { content:""; width:100%; height:100%; border-radius:50%; background:#69acc2; position:absolute; top:0; left:0; z-index:-1; }
+        .skills .picture img { width:100%; height:auto; border-radius:50%; transform:scale(1); transition:all .9s ease; }
+        .skills .our-team:hover .picture img { box-shadow:0 0 0 14px #2d3748; transform:scale(.7); }
+        .skills .team-content .name { margin:0 0 6px; font-size:20px; color:#e2e8f0; }
+        .skills .team-content .title { display:block; font-size:15px; color:#cbd5e1; }
+        .skills .social {
+            width:100%; padding:0; margin:0; background:#69acc2;
+            position:absolute; bottom:-100px; left:0; transition:all .5s ease;
+        }
+        .skills .our-team:hover .social { bottom:0; }
+        .skills .social li { display:inline-block; }
+        .skills .social li a {
+            display:block; padding:10px 12px; font-size:14px; color:white;
+            text-decoration:none; transition:all .3s ease;
+        }
+        .skills .social li a:hover { color:#2d3748; background:#e2e8f0; }
 
-        .portfolio-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        /* ===== Portfolio Section ===== */
+        .portfolio { padding: 60px 0; background-color: #2d3748; }
+        .portfolio-header h2 { text-align: center; font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 20px; }
+        .portfolio .cards {
+            width: 100%; max-width: 1100px; margin: 0 auto;
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;
         }
-
-        .portfolio-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
+        .portfolio .card { position: relative; border-radius: 12px; perspective: 1000px; }
+        .portfolio .card .face { width: 300px; height: 200px; transition: 0.5s; border-radius: 12px; overflow: hidden; }
+        .portfolio .card .face.face1 { position: relative; background: #333; display: flex; justify-content: center; align-items: center; transform: translateY(100px); }
+        .portfolio .card:nth-child(1) .icon { background: none; } /* ปิดพื้นหลังการ์ดแรก */
+        .portfolio .card:nth-child(2) .icon { background: #6eadd4; }
+        .portfolio .card:nth-child(3) .icon { background: #4aada9; }
+        .portfolio .card .icon { position: absolute; inset: 0; transition: 0.7s; z-index: 1; }
+        .portfolio .card .icon svg { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; fill: #fff; transition: 0.7s; }
+        .portfolio .card .icon img{ width:100%; height:100%; object-fit:cover; display:block; } /* ให้รูปพอดีกรอบ */
+        .portfolio .card:hover .face.face1 { background: #ff0057; transform: translateY(0); }
+        .portfolio .card .face.face2 {
+            position: relative; background: #ffffff; color: #414141; display: flex; justify-content: center; align-items: center;
+            padding: 20px; box-sizing: border-box; box-shadow: 0 20px 50px rgba(0,0,0,0.35); transform: translateY(-100px);
         }
+        .portfolio .card:hover .face.face2 { transform: translateY(0); }
+        .portfolio .card .face.face2 .content { text-align: center; }
+        .portfolio .card .face.face2 .content h3 { margin: 0 0 10px 0; font-size: 1.25rem; font-weight: 700; color: #2d3748; }
+        .portfolio .card .face.face2 .content p { margin: 0; line-height: 1.5; color: #4a5568; }
+        .portfolio .card a { text-decoration: none; color: #2b6cb0; }
+        .portfolio .card a:hover { text-decoration: underline; }
+        @media (max-width: 980px) { .portfolio .card .face { width: 100%; max-width: 320px; } }
 
         /* Footer Section */
-        footer {
-            padding: 40px;
-            background-color: #1a202c;
-            text-align: center;
-            color: #e2e8f0;
-        }
+        footer { padding: 40px; background-color: #1a202c; text-align: center; color: #e2e8f0; }
+        footer a { color: #69acc2; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
 
-        footer a {
-            color: #69acc2;
-            text-decoration: none;
+        /* ================== ABOUT ME (SCOPED TO #about) ================== */
+        #about.responsive-container-block.bigContainer {
+          background-color: #1a202c;
+          padding: 10px 20px;
+          margin: 0;
         }
-
-        footer a:hover {
-            text-decoration: underline;
+        #about .responsive-container-block {
+          min-height: 75px; width: 100%;
+          padding: 10px;
+          display: flex; flex-wrap: wrap;
+          margin: 0 auto;
+          justify-content: flex-start;
         }
+        #about .responsive-container-block.Container {
+          max-width: 1320px;
+          align-items: center; justify-content: center;
+          margin: 80px auto; padding: 10px 0;
+        }
+        #about .responsive-container-block.leftSide {
+          width: auto; max-width: 480px;
+          display: flex; flex-direction: column; align-items: flex-start;
+          padding: 10px 0; margin: 0 auto;
+        }
+        #about .text-blk { 
+          color: #e2e8f0; font-size: 16px; line-height: 26px;
+          margin: 0 0 24px 0; 
+        }
+        #about .text-blk.heading {
+          font-size: 40px; line-height: 54px; font-weight: 900;
+          color: #69acc2; margin-bottom: 16px;
+        }
+        #about .text-blk.subHeading {
+          font-size: 16px; line-height: 26px; color: #cbd5e1;
+        }
+        #about .text-blk.btn {
+          color: #69acc2; background: #ffffff; box-shadow: rgba(160,121,0,0.2) 0 12px 35px;
+          border-radius: 100px; padding: 12px 28px; cursor: pointer;
+        }
+        #about .responsive-container-block.rightSide {
+          width: 675px; height: 700px; min-height: auto;
+          position: relative; padding: 0; display: flex;
+        }
+        /* media elements */
+        #about .number1img { position:absolute; height:32%; width:20%; top:39%; left:0; }
+        #about .number2img { position:absolute; width:35%; height:39%; top:19%; left:23%; }
+        #about .number3img { position:absolute; width:13%; height:21%; top:62%; left:23%; }
+        #about .number4vid { position:absolute; width:34%; height:33%; top:62%; left:39%; border:none; border-radius:12px; }
+        #about .number5img { position:absolute; width:13%; height:21%; top:38%; left:60%; }
+        #about .number6img { position:absolute; width:35%; height:33%; top:0; left:62%; }
+        #about .number7img { position:absolute; width:25%; height:42%; top:40%; left:75%; }
 
+        /* Responsive */
+        @media (max-width: 1024px) {
+          #about .responsive-container-block.Container { flex-direction: column-reverse; margin: 60px auto; }
+          #about .text-blk.heading, #about .text-blk.subHeading { text-align: center; }
+          #about .responsive-container-block.leftSide { align-items: center; max-width: 520px; }
+          #about .responsive-container-block.rightSide { margin: 0 auto 70px; }
+        }
+        @media (max-width: 768px) {
+          #about .responsive-container-block.rightSide { width: 450px; height: 450px; }
+          #about .responsive-container-block.leftSide { max-width: 450px; }
+        }
+        @media (max-width: 500px) {
+          #about .responsive-container-block.rightSide {
+            width: 100%; height: 250px; margin: 0 0 70px 0;
+          }
+          #about .number1img, #about .number2img, #about .number3img,
+          #about .number5img, #about .number6img, #about .number7img { display: none; }
+          #about .number4vid { position: static; width: 100%; height: 100%; margin: 0 auto; }
+          #about .text-blk.heading { font-size: 28px; line-height: 40px; }
+          #about .text-blk.subHeading { font-size: 14px; line-height: 24px; }
+          #about .responsive-container-block.leftSide { width: 100%; }
+        }
+        /* END ABOUT ME */
     </style>
 </head>
 
@@ -257,68 +283,169 @@
     <!-- Navbar -->
     <div class="navbar" id="navbar">
         <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About Me</a>
-    <a href="#skills">Skills</a>
-    <a href="#portfolio">My Portfolio</a>
-    <a href="#contact">Contact</a>
-</nav>
-
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">My Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Home) -->
     <div class="firstparagrape" id="home">
-        <div class="title">
-            <h1 id="name">Kantapong Kanhaming</h1>
-            <p id="subname">Developer | Programer</p>
+        <aside class="profile-card">
+            <header>
+                <!-- avatar -->
+                <a href="#" target="_blank" rel="noopener">
+                    <img src="gal/profile04.jpg" alt="Profile" class="hoverZoomLink">
+                </a>
+                <!-- ชื่อ -->
+                <h1>Kantapong Kanhaming</h1>
+                <!-- ตำแหน่ง -->
+                <h2>Developer | Programmer</h2>
+            </header>
+
+            <!-- bio สั้น ๆ -->
+            <div class="profile-bio">
+                <p>สวัสดีครับ ชื่อเล่นกายกำลังศึกษาการเป็น Dev และ Programer</p>
+            </div>
+
+            <!-- ลิงก์โซเชียล -->
+            <ul class="profile-social-links">
+                <li>
+                    <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg viewBox="0 0 320 512" aria-hidden="true"><path d="M279.14 288l14.22-92.66h-88.91V127.91c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://x.com/your-handle" target="_blank" rel="noopener" aria-label="X">
+                        <svg viewBox="0 0 512 512" aria-hidden="true"><path d="M389.2 48H463L300.6 240.7 492 464H343.7L229.1 327.4 99.2 464H26.5L199.4 256.7 16 48h151.2l103.2 123.6L389.2 48zM364.4 421.8h42.1L153.1 86.2h-45L364.4 421.8z"/></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/yourusername" target="_blank" rel="noopener" aria-label="GitHub">
+                        <svg viewBox="0 0 496 512" aria-hidden="true"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.1.3-5.7-1.3-5.7-3.6 0-2 2.3-3.6 5.2-3.6 3.1-.3 5.7 1.3 5.7 3.6zm-32.3-3.2c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.7.3 6.2-1.6.7-2-1.3-4.3-4.3-4.9-2.6-.7-5.5 0-6.2 1.6zm44.8-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.9-.3-2-3-3.3-5.9-2.6zM244 8C108.9 8 0 117.5 0 252.9c0 108.3 70.2 200 167.5 232.5 12.3 2.3 16.8-5.2 16.8-11.6 0-5.7-.3-24.6-.3-44.6-61 13.3-73.8-26.6-73.8-26.6-11.3-28.6-27.6-36.3-27.6-36.3-22.6-15.6 1.6-15.6 1.6-15.6 24.9 1.6 38 25.9 38 25.9 22.3 38.6 58.9 27.6 73.3 21 2.3-16.2 8.6-27.6 15.6-34-48.6-5.5-99.8-24.3-99.8-108.6 0-24 8.6-43.6 22.6-59-2.3-5.5-9.9-28 2.3-58.3 0 0 18.6-5.9 61 22.6 17.6-4.9 36.6-7.5 55.6-7.5s38 .3 55.6 7.5c42.3-28.6 61-22.6 61-22.6 12.9 30.3 4.9 52.8 2.3 58.3 14 15.3 22.6 35 22.6 59 0 84.6-51.2 103-100.1 108.6 8.9 7.8 16.6 22.6 16.6 45.6 0 33-.3 59.6-.3 67.9 0 6.5 4.3 14.3 16.9 11.6C425.8 452.9 496 361.3 496 252.9 496 117.5 383.1 8 244 8z"/></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.behance.net/your-behance" target="_blank" rel="noopener" aria-label="Behance">
+                        <svg viewBox="0 0 576 512" aria-hidden="true"><path d="M232.1 246.3c12.7-6.3 21.4-15.5 26.1-27.5 4.7-12 5.5-25.9 2.5-41.7-3.1-15.8-10.5-29.1-22.3-39.9C226.6 126.4 207.2 120 181 120H32v272h153.9c27.8 0 49.5-6.8 65.1-20.5 15.6-13.7 23.4-32.7 23.4-57.1 0-14.8-3.2-27.4-9.6-37.7-6.4-10.3-15.9-18.5-28.5-24.4zM96 176h72.4c12.7 0 22.4 3 29 9.1 6.6 6.1 9.9 14.7 9.9 25.8 0 11.9-3.7 20.8-11.2 26.6-7.5 5.8-18.4 8.8-32.6 8.8H96V176zm81.8 176H96v-80h80.4c15.9 0 27.6 3.2 35.1 9.6 7.5 6.4 11.3 15.8 11.3 28.3 0 12.1-3.8 21.1-11.4 27.2-7.6 6.1-19 9.2-33.2 9.2zM448 120h96v32h-96zm-8 64c-28.8 0-53.2 9.2-73.1 27.7C347.1 230.2 336 256 336 288c0 31.4 10.2 56.9 30.6 76.6C387 384.4 412.3 394 443.5 394c31.2 0 56.5-9.8 75.7-29.5 19.2-19.7 28.8-47.7 28.8-83.9h-151c2.3-15.7 8.8-27.8 19.4-36.2 10.6-8.4 23.5-12.6 38.6-12.6 11.5 0 22.3 2.2 32.4 6.7 10.2 4.5 19.3 10.6 27.4 18.4l24.6-39.7c-10.4-9.4-22.5-16.6-36.1-21.6-13.7-5-30-7.5-49-7.5z"/></svg>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+
+    <!-- About Me -->
+    <div id="about" class="responsive-container-block bigContainer">
+      <div class="responsive-container-block Container">
+        <div class="responsive-container-block leftSide">
+          <p class="text-blk heading">About Me</p>
+          <p class="text-blk subHeading">
+            สวัสดีครับ ชื่อเล่นกายกำลังศึกษามหาวิทยาลัยเชียงใหม่ คณะ CAMT สาขา DII ปีที่สองครับ
+            ตอนนี้กำลังฝึกการเป็น Dev และ Programer มีความสนใจในด้านการพัฒนาเว็บไซต์และแอปพลิเคชัน
+            พร้อมที่จะเรียนรู้และเติบโตในสายงานนี้
+            <br>ฉันยังได้เซ็นสัญญาทำงานกับบริษัท zygen และกำลังรอการฝึกงานภายในปี 2025 เดือนธันวาคม
+          </p>
         </div>
+
+        <div class="responsive-container-block rightSide">
+          <img class="number1img" src="gal/profile05.jpg" alt="">
+          <img class="number2img" src="gal/profile07.jpg" alt="">
+          <img class="number3img" src="gal/profile09.jpg" alt="">
+          <img class="number5img" src="gal/profile10.jpg" alt="">
+          <iframe allowfullscreen="allowfullscreen" class="number4vid" poster="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/b242.png" src="https://www.youtube.com/embed/svg%3E?"></iframe>
+          <img class="number7img" src="gal/profile11.jpg" alt="">
+          <img class="number6img" src="gal/profile08.jpg" alt="">
+        </div>
+      </div>
     </div>
 
-    <!-- About Me Section -->
-    <div class="about-me" id="about">
-        <h2>About Me</h2>
-        <p>Passionate about capturing authentic moments through still and motion photography. Skilled in using both natural and studio lighting to create compelling visuals for events, portraits, and creative projects. Experience includes event coverage, promotional shoots, and personal artistic work, with attention to composition, mood, and storytelling.</p>
-    </div>
-
-    <!-- Skills Section -->
+    <!-- Skills -->
     <div class="skills" id="skills">
         <h2>Skills</h2>
-        <div class="skills-list">
-            <div class="skills-item">Java</div>
-            <div class="skills-item">CSS</div>
-            <div class="skills-item">HTML</div>
-            <div class="skills-item">Microsoft</div>
-            <div class="skills-item">SQL</div>
+        <div class="skills-grid">
+            <div class="our-team">
+                <div class="picture"><img src="gal/profile12.jpg" alt="Frontend"></div>
+                <div class="team-content"><h3 class="name">Database Management</h3><span class="title">MySQL • PostgreSQL • Firebase</span></div>
+                <ul class="social"><li><a href="#">MySQL</a></li><li><a href="#">PostgreSQL</a></li><li><a href="#">Firebase</a></li></ul>
+            </div>
+
+            <div class="our-team">
+                <div class="picture"><img src="gal/profile13.jpg" alt="Backend"></div>
+                <div class="team-content"><h3 class="name">Backend</h3><span class="title">Java • API</span></div>
+                <ul class="social"><li><a href="#">Java</a></li><li><a href="#">Spring</a></li><li><a href="#">REST</a></li></ul>
+            </div>
+
+            <div class="our-team">
+                <div class="picture"><img src="gal/profile14.jpg" alt="Web Development"></div>
+                <div class="team-content"><h3 class="name">Web Development</h3><span class="title">HTML • CSS • JS</span></div>
+                <ul class="social"><li><a href="#">HTML</a></li><li><a href="#">CSS</a></li><li><a href="#">JS</a></li></ul>
+            </div>
+
+            <div class="our-team">
+                <div class="picture"><img src="gal/profile15.jpg" alt="Tools"></div>
+                <div class="team-content"><h3 class="name">Tools</h3><span class="title">Microsoft • Workflow</span></div>
+                <ul class="social"><li><a href="#">Office</a></li><li><a href="#">Excel</a></li><li><a href="#">PowerPoint</a></li></ul>
+            </div>
         </div>
     </div>
 
-    <!-- Portfolio Section -->
+    <!-- Portfolio -->
     <div class="portfolio" id="portfolio">
-        <div class="portfolio-header">
-            <h2>My Portfolio</h2>
-        </div>
-        <div class="portfolio-grid">
-            <!-- Change images here -->
-            <div class="portfolio-item">
-                <img src="img/project1.jpg" alt="Project 1">
-                <h3 class="portfolio-title">Project 1</h3>
-                <p class="portfolio-description">Brief description of the project.</p>
+        <div class="portfolio-header"><h2>My Portfolio</h2></div>
+        <div class="cards">
+            <!-- Card 1: ใช้ภาพแทนโลโก้ IN -->
+            <div class="card">
+                <div class="face face1">
+                    <div class="icon">
+                        <img src="gal/profile16.jpg.png" alt="COMNETWORK PROJECT">
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <h3>COMNETWORK PROJECT</h3>
+                        <p>โปรเจควิชา COMNETWORK ได้ใช้โปรแกรม cisco ในการทำ.</p>
+                    </div>
+                </div>
             </div>
-            <div class="portfolio-item">
-                <img src="img/project2.jpg" alt="Project 2">
-                <h3 class="portfolio-title">Project 2</h3>
-                <p class="portfolio-description">Brief description of the project.</p>
+
+            <!-- Card 2: Twitter/X -->
+            <div class="card">
+                <div class="face face1">
+                   <div class="icon">
+                        <img src="gal/profile17.jpg.png" alt="COMNETWORK PROJECT">
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <h3>โปรเจคทำแอพช่วยวิกฤตน้ำท่วม</h3>
+                        <p>ได้ทำโปรเจคออกแบบแอพช่วยเหลือผู้ประสบภัยน้ำท่วม และได้ใช้ persona ในการเก็บข้อมูลเพื่อทำแอพ.</p>
+                    </div>
+                </div>
             </div>
-            <div class="portfolio-item">
-                <img src="img/project3.jpg" alt="Project 3">
-                <h3 class="portfolio-title">Project 3</h3>
-                <p class="portfolio-description">Brief description of the project.</p>
+
+            <!-- Card 3: GitHub -->
+            <div class="card">
+                <div class="face face1">
+                    <div class="icon">
+                        <svg viewBox="0 0 496 512" aria-hidden="true">
+                            <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.1.3-5.7-1.3-5.7-3.6 0-2 2.3-3.6 5.2-3.6 3.1-.3 5.7 1.3 5.7 3.6zm-32.3-3.2c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.7.3 6.2-1.6.7-2-1.3-4.3-4.3-4.9-2.6-.7-5.5 0-6.2 1.6zm44.8-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.9-.3-2-3-3.3-5.9-2.6zM244 8C108.9 8 0 117.5 0 252.9c0 108.3 70.2 200 167.5 232.5 12.3 2.3 16.8-5.2 16.8-11.6 0-5.7-.3-24.6-.3-44.6-61 13.3-73.8-26.6-73.8-26.6-11.3-28.6-27.6-36.3-27.6-36.3-22.6-15.6 1.6-15.6 1.6-15.6 24.9 1.6 38 25.9 38 25.9 22.3 38.6 58.9 27.6 73.3 21 2.3-16.2 8.6-27.6 15.6-34-48.6-5.5-99.8-24.3-99.8-108.6 0-24 8.6-43.6 22.6-59-2.3-5.5-9.9-28 2.3-58.3 0 0 18.6-5.9 61 22.6 17.6-4.9 36.6-7.5 55.6-7.5s38 .3 55.6 7.5c42.3-28.6 61-22.6 61-22.6 12.9 30.3 4.9 52.8 2.3 58.3 14 15.3 22.6 35 22.6 59 0 84.6-51.2 103-100.1 108.6 8.9 7.8 16.6 22.6 16.6 45.6 0 33-.3 59.6-.3 67.9 0 6.5 4.3 14.3 16.9 11.6C425.8 452.9 496 361.3 496 252.9 496 117.5 383.1 8 244 8z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <h3><a href="https://github.com/seaskyqz" target="_blank" rel="noopener">github.com/seaskyqz</a></h3>
+                        <p>ที่รวมซอร์สโค้ดและโปรเจกต์ที่กำลังทำอยู่.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <p>Contact me: <a href="mailto:kantapong2360@gmail.com">kantapong2360@gmail.com</a> | <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a></p>
     </footer>
 
