@@ -61,7 +61,8 @@
             color: #69acc2;
             outline: none;
         }
-                /* Mobile styles */
+
+        /* Mobile styles */
         @media screen and (max-width: 600px) {
             .navbar {
                 padding: 0 10px;
@@ -101,584 +102,605 @@
         }
 
 
-.firstparagrape {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-@keyframes crop {
-    0% {
-        height: 50%;
-    }
-
-    40% {
-        height: 15%;
-    }
-
-    100% {
-        height: 10%;
-    }
-}
-
-.firstparagrape::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 10%;
-    background: #ffffff;
-    z-index: 3;
-    animation: crop 4s ease-in forwards;
-    transition: all 0.5s ease-in-out;
-}
-
-.firstparagrape::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 10%;
-    background: #ffffff;
-    z-index: 5;
-    animation: crop 4s ease-in forwards;
-    transition: all 0.5s ease-in-out;
-}
-
-.firstparagrape::before {
-    top: 0;
-}
-
-.firstparagrape::after {
-    bottom: 0;
-}
-
-.title {
-    margin: 10%;
-    position: relative;
-    width: 80%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    flex-direction: column;
-    z-index: 3;
-    opacity: 0;
-    animation: fadeInTitle 4s ease-in forwards;
-}
-
-@keyframes fadeInTitle {
-    0% {
-        opacity: 0;
-    }
-
-    80% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-#name {
-    position: fixed;
-    top: 10%;
-    left: 5%;
-    font-size: clamp(4rem, 12vw, 200px);
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    color: rgba(255, 255, 255, 0.85);
-    text-transform: uppercase;
-    white-space: nowrap;
-    border-bottom: 5px solid rgba(255, 255, 255, 0.85);
-    z-index: 1;
-    text-shadow:
-        5px 5px 15px rgba(0, 0, 0, 0.8),
-        -2px -2px 5px rgba(255, 255, 255, 0.05);
-    /* Parallax properties */
-    transform: translate3d(0, 0, 0);
-    transition: transform 0.1s ease-out;
-}
-
-#subname {
-    position: fixed;
-    top: 55%;
-    left: 6%;
-    font-size: clamp(1.5rem, 4vw, 50px);
-    font-weight: 300;
-    letter-spacing: 0.2em;
-    color: rgba(255, 255, 255, 0.85);
-    text-transform: uppercase;
-    white-space: nowrap;
-    z-index: 1;
-    text-shadow:
-        5px 5px 15px rgba(0, 0, 0, 0.8),
-        -2px -2px 5px rgba(255, 255, 255, 0.05);
-    /* Parallax properties */
-    transform: translate3d(0, 0, 0);
-    transition: transform 0.1s ease-out;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    #name {
-        font-size: clamp(3rem, 10vw, 5rem); /* เพิ่มขนาด */
-        left: 3%;
-        top: 12%; /* ขึ้นเล็กน้อย */
-        border-bottom-width: 3px;
-        letter-spacing: 0.1em;
-    }
-
-    #subname {
-        font-size: clamp(1.5rem, 5vw, 2.5rem); /* เพิ่มขนาด */
-        left: 3%; /* ตำแหน่งชิด #name */
-        top: 28%; /* ขยับขึ้นให้ชิด */
-        letter-spacing: 0.1em;
-    }
-
-    .title {
-        margin: 5%;
-        width: 90%;
-    }
-}
-
-@media (max-width: 480px) {
-    #name {
-        font-size: clamp(2.5rem, 9vw, 4rem); /* เพิ่มเล็กน้อย */
-        left: 2%;
-        top: 15%;
-        border-bottom-width: 2px;
-    }
-
-    #subname {
-        font-size: clamp(1.2rem, 4vw, 2rem); /* เพิ่มเล็กน้อย */
-        left: 2%;
-        top: 30%; /* ขยับขึ้น */
-    }
-}
-
-/* Tablet responsiveness */
-@media (min-width: 769px) and (max-width: 1024px) {
-    #name {
-        font-size: clamp(7rem, 12vw, 150px); /* เพิ่มขนาด */
-        left: 4%;
-    }
-
-    #subname {
-        font-size: clamp(3rem, 5vw, 45px); /* เพิ่มขนาด */
-        left: 4%;
-        top: 40%; /* ขยับขึ้นให้ชิด */
-    }
-}
-
-.main-first {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 4;
-    animation: zoom 4s ease-in-out forwards;
-}
-
-@keyframes zoom {
-    0% {
-        opacity: 0;
-        transform: scale(2);
-    }
-
-    40% {
-        opacity: 0;
-        transform: scale(1.4);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.bg1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-    filter: blur(5px);
-    animation: zoomBlur 4s ease-in-out forwards;
-}
-
-@keyframes zoomBlur {
-    0% {
-        transform: scale(2);
-        filter: blur(0px);
-    }
-
-    40% {
-        transform: scale(1.4);
-        filter: blur(0px);
-    }
-
-    100% {
-        transform: scale(1);
-        filter: blur(5px);
-    }
-}
-.thierparagrape {
-    position: relative;
-    z-index: 6;
-    background-color: white;
-    min-height: 100vh; /* เพิ่มความสูงขั้นต่ำ */
-}
-
-@media (max-width: 768px) {
-    .thierparagrape {
-        min-height: auto; /* ปรับให้ขยายตาม content */
-    }
-}
-
-a {
-    color: #571220;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 2rem 1rem;
-}
-
-header {
-    text-align: center;
-    padding-bottom: 2rem;
-    border-bottom: 2px solid #571220;
-}
-
-header h1 {
-    margin-bottom: 0.2rem;
-    letter-spacing: 2px;
-    color: #571220;
-        font-size: clamp(2rem, 5vw, 3rem); 
-}
-
-header p {
-    font-size: clamp(1rem, 2.5vw, 1.1rem);
-    color: #571220;
-}
-
-.about {
-    justify-content: center;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #571220;
-    width: 70%;
-    min-height: auto; /* เปลี่ยนจาก height: 100vh เป็น min-height: auto */
-    display: block;
-    align-items: center;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-/* ปรับให้ .about ขยายตาม content ในมือถือ */
-@media (max-width: 768px) {
-    .about {
-        width: 90%; /* เพิ่มความกว้างในมือถือ */
-        padding: 1rem;
-    }
-}
-
-footer {
-    text-align: center;
-    margin: 3rem 0 1rem;
-    font-size: 0.9rem;
-    color: #571220;
-}
-
-#abouttext {
-    position: relative;
-    padding-left: 40px;
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    color: #571220;
-    font-weight: bold;
-    border-left: 5px solid #571220;
-    border-right: 5px solid #571220;
-    padding-left: 10px;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-align: center;
-}
-
-/* ปรับขนาดข้อความใน mobile */
-@media (max-width: 768px) {
-    #abouttext {
-        font-size: 2rem;
-        padding-left: 20px;
-    }
-}
-
-.about-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.about-row {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    /* ให้ wrap ลงเมื่อจอเล็ก */
-}
-
-/* Box 1 - Photo */
-.about-photo-box {
-    flex: 2;
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    /* กันรูปเกินกรอบ */
-    height: 320px;
-    display: flex;
-    flex-direction: row;
-    /* สลับตำแหน่งให้รูปไปขวา ข้อความไปซ้าย */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.about-photo-text {
-    flex: 3;
-    /* กว้างกว่า */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.about-photo-img {
-    flex: 2;
-    /* แคบกว่า */
-    overflow: hidden;
-}
-
-.about-photo-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* ครอบเต็มพื้นที่ */
-}
-
-.about-photo-box:hover {
-    transform: scale(1.03);
-}
-
-/* ให้ wrap ตอนจอเล็ก */
-@media (max-width: 768px) {
-    .about-photo-box {
-        flex-direction: column;
-        /* เรียงบนล่าง */
-        height: auto;
-        min-height: 300px; /* เพิ่มความสูงขั้นต่ำ */
-    }
-
-    .about-photo-img {
-        height: 200px;
-        /* กำหนดสูงรูปตอนอยู่บน */
-    }
-}
-
-.photo-wrapper {
-    flex: 1;
-    position: relative;
-}
-
-.photo-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* กันรูปยืด */
-}
-
-.photo-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba(253, 224, 71, 0.7), transparent);
-    pointer-events: none;
-}
-
-.photo-text {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: black;
-    max-width: 50%;
-    z-index: 1;
-}
-
-.photo-text h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-.photo-text p {
-    font-size: 1rem;
-}
-
-.about-photo-text {
-    color: black;
-    max-width: 50%;
-    z-index: 1;
-}
-
-.about-photo-text h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-.about-photo-text p {
-    font-size: 1rem;
-}
-
-/* Box 2 - Skills */
-.about-skills {
-    flex: 1;
-    background: linear-gradient(135deg, #bbf7d0, #fef08a);
-    border-radius: 10px;
-    padding: 1.5rem;
-    text-align: center;
-    height: 320px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.about-skills:hover {
-    transform: scale(1.03);
-}
-
-.skills-title {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-.about-skills ul {
-    list-style: none;
-    padding: 0;
-}
-
-.about-skills li {
-    background: #bbf7d0;
-    margin: 0.3rem 0;
-    padding: 0.5rem;
-    border-radius: 999px;
-    font-weight: bold;
-}
-
-.about-skills li:hover {
-    background: #86efac;
-    cursor: pointer;
-}
-
-/* Box 3 - Education */
-.about-education {
-    flex: 2;
-    background: linear-gradient(135deg, #fbcfe8, #fce7f3);
-    border-radius: 10px;
-    padding: 1.5rem;
-    height: 240px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.about-education:hover {
-    transform: scale(1.03);
-}
-
-.about-education .year {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-.about-education p {
-    font-size: clamp(0.7rem, 1vw, 1rem);
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-/* Box 4 - Experience */
-.about-experience {
-    flex: 1;
-    background: linear-gradient(135deg, #e9d5ff, #f3e8ff);
-    border-radius: 10px;
-    padding: 1.5rem;
-    height: 240px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.about-experience:hover {
-    transform: scale(1.03);
-}
-
-.about-experience .exp-title {
-    font-size: clamp(0.9rem, 2.5vw, 1.3rem);
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-    .about-row {
-        flex-direction: column;
-    }
-
-    .about-photo-box,
-    .about-skills,
-    .about-education,
-    .about-experience {
-        height: auto;
-        min-height: 200px; /* เพิ่มความสูงขั้นต่ำ */
-    }
-
-    .photo-text {
-        max-width: 80%;
-        position: static;
-        transform: none;
-        padding: 1rem;
-    }
-}
-.about, .about-photo-text, .photo-text {
-    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-}
-
-.fourparagrape {
-    position: relative;
-    z-index: 6;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+        .firstparagrape {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        @keyframes crop {
+            0% {
+                height: 50%;
+            }
+
+            40% {
+                height: 15%;
+            }
+
+            100% {
+                height: 10%;
+            }
+        }
+
+        .firstparagrape::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            background: #ffffff;
+            z-index: 3;
+            animation: crop 4s ease-in forwards;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .firstparagrape::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            background: #ffffff;
+            z-index: 5;
+            animation: crop 4s ease-in forwards;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .firstparagrape::before {
+            top: 0;
+        }
+
+        .firstparagrape::after {
+            bottom: 0;
+        }
+
+        .title {
+            margin: 10%;
+            position: relative;
+            width: 80%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            flex-direction: column;
+            z-index: 3;
+            opacity: 0;
+            animation: fadeInTitle 4s ease-in forwards;
+        }
+
+        @keyframes fadeInTitle {
+            0% {
+                opacity: 0;
+            }
+
+            80% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #name {
+            position: fixed;
+            top: 10%;
+            left: 5%;
+            font-size: clamp(4rem, 12vw, 200px);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: rgba(255, 255, 255, 0.85);
+            text-transform: uppercase;
+            white-space: nowrap;
+            border-bottom: 5px solid rgba(255, 255, 255, 0.85);
+            z-index: 1;
+            text-shadow:
+                5px 5px 15px rgba(0, 0, 0, 0.8),
+                -2px -2px 5px rgba(255, 255, 255, 0.05);
+            /* Parallax properties */
+            transform: translate3d(0, 0, 0);
+            transition: transform 0.1s ease-out;
+        }
+
+        #subname {
+            position: fixed;
+            top: 55%;
+            left: 6%;
+            font-size: clamp(1.5rem, 4vw, 50px);
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.85);
+            text-transform: uppercase;
+            white-space: nowrap;
+            z-index: 1;
+            text-shadow:
+                5px 5px 15px rgba(0, 0, 0, 0.8),
+                -2px -2px 5px rgba(255, 255, 255, 0.05);
+            /* Parallax properties */
+            transform: translate3d(0, 0, 0);
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            #name {
+                font-size: clamp(3rem, 10vw, 5rem);
+                /* เพิ่มขนาด */
+                left: 3%;
+                top: 12%;
+                /* ขึ้นเล็กน้อย */
+                border-bottom-width: 3px;
+                letter-spacing: 0.1em;
+            }
+
+            #subname {
+                font-size: clamp(1.5rem, 5vw, 2.5rem);
+                /* เพิ่มขนาด */
+                left: 3%;
+                /* ตำแหน่งชิด #name */
+                top: 28%;
+                /* ขยับขึ้นให้ชิด */
+                letter-spacing: 0.1em;
+            }
+
+            .title {
+                margin: 5%;
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #name {
+                font-size: clamp(2.5rem, 9vw, 4rem);
+                /* เพิ่มเล็กน้อย */
+                left: 2%;
+                top: 15%;
+                border-bottom-width: 2px;
+            }
+
+            #subname {
+                font-size: clamp(1.2rem, 4vw, 2rem);
+                /* เพิ่มเล็กน้อย */
+                left: 2%;
+                top: 30%;
+                /* ขยับขึ้น */
+            }
+        }
+
+        /* Tablet responsiveness */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            #name {
+                font-size: clamp(7rem, 12vw, 150px);
+                /* เพิ่มขนาด */
+                left: 4%;
+            }
+
+            #subname {
+                font-size: clamp(3rem, 5vw, 45px);
+                /* เพิ่มขนาด */
+                left: 4%;
+                top: 40%;
+                /* ขยับขึ้นให้ชิด */
+            }
+        }
+
+        .main-first {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 4;
+            animation: zoom 4s ease-in-out forwards;
+        }
+
+        @keyframes zoom {
+            0% {
+                opacity: 0;
+                transform: scale(2);
+            }
+
+            40% {
+                opacity: 0;
+                transform: scale(1.4);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .bg1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: blur(5px);
+            animation: zoomBlur 4s ease-in-out forwards;
+        }
+
+        @keyframes zoomBlur {
+            0% {
+                transform: scale(2);
+                filter: blur(0px);
+            }
+
+            40% {
+                transform: scale(1.4);
+                filter: blur(0px);
+            }
+
+            100% {
+                transform: scale(1);
+                filter: blur(5px);
+            }
+        }
+
+        .thierparagrape {
+            position: relative;
+            z-index: 6;
+            background-color: white;
+            min-height: 100vh;
+            /* เพิ่มความสูงขั้นต่ำ */
+        }
+
+        @media (max-width: 768px) {
+            .thierparagrape {
+                min-height: auto;
+                /* ปรับให้ขยายตาม content */
+            }
+        }
+
+        a {
+            color: #571220;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #571220;
+        }
+
+        header h1 {
+            margin-bottom: 0.2rem;
+            letter-spacing: 2px;
+            color: #571220;
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+
+        header p {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: #571220;
+        }
+
+        .about {
+            justify-content: center;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #571220;
+            width: 70%;
+            min-height: auto;
+            /* เปลี่ยนจาก height: 100vh เป็น min-height: auto */
+            display: block;
+            align-items: center;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* ปรับให้ .about ขยายตาม content ในมือถือ */
+        @media (max-width: 768px) {
+            .about {
+                width: 90%;
+                /* เพิ่มความกว้างในมือถือ */
+                padding: 1rem;
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin: 3rem 0 1rem;
+            font-size: 0.9rem;
+            color: #571220;
+        }
+
+        #abouttext {
+            position: relative;
+            padding-left: 40px;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            color: #571220;
+            font-weight: bold;
+            border-left: 5px solid #571220;
+            border-right: 5px solid #571220;
+            padding-left: 10px;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        /* ปรับขนาดข้อความใน mobile */
+        @media (max-width: 768px) {
+            #abouttext {
+                font-size: 2rem;
+                padding-left: 20px;
+            }
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .about-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            /* ให้ wrap ลงเมื่อจอเล็ก */
+        }
+
+        /* Box 1 - Photo */
+        .about-photo-box {
+            flex: 2;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            /* กันรูปเกินกรอบ */
+            height: 320px;
+            display: flex;
+            flex-direction: row;
+            /* สลับตำแหน่งให้รูปไปขวา ข้อความไปซ้าย */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .about-photo-text {
+            flex: 3;
+            /* กว้างกว่า */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-photo-img {
+            flex: 2;
+            /* แคบกว่า */
+            overflow: hidden;
+        }
+
+        .about-photo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* ครอบเต็มพื้นที่ */
+        }
+
+        .about-photo-box:hover {
+            transform: scale(1.03);
+        }
+
+        /* ให้ wrap ตอนจอเล็ก */
+        @media (max-width: 768px) {
+            .about-photo-box {
+                flex-direction: column;
+                /* เรียงบนล่าง */
+                height: auto;
+                min-height: 300px;
+                /* เพิ่มความสูงขั้นต่ำ */
+            }
+
+            .about-photo-img {
+                height: 200px;
+                /* กำหนดสูงรูปตอนอยู่บน */
+            }
+        }
+
+        .photo-wrapper {
+            flex: 1;
+            position: relative;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* กันรูปยืด */
+        }
+
+        .photo-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(253, 224, 71, 0.7), transparent);
+            pointer-events: none;
+        }
+
+        .photo-text {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: black;
+            max-width: 50%;
+            z-index: 1;
+        }
+
+        .photo-text h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .photo-text p {
+            font-size: 1rem;
+        }
+
+        .about-photo-text {
+            color: black;
+            max-width: 50%;
+            z-index: 1;
+        }
+
+        .about-photo-text h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-photo-text p {
+            font-size: 1rem;
+        }
+
+        /* Box 2 - Skills */
+        .about-skills {
+            flex: 1;
+            background: linear-gradient(135deg, #bbf7d0, #fef08a);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .about-skills:hover {
+            transform: scale(1.03);
+        }
+
+        .skills-title {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .about-skills ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-skills li {
+            background: #bbf7d0;
+            margin: 0.3rem 0;
+            padding: 0.5rem;
+            border-radius: 999px;
+            font-weight: bold;
+        }
+
+        .about-skills li:hover {
+            background: #86efac;
+            cursor: pointer;
+        }
+
+        /* Box 3 - Education */
+        .about-education {
+            flex: 2;
+            background: linear-gradient(135deg, #fbcfe8, #fce7f3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            height: 240px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .about-education:hover {
+            transform: scale(1.03);
+        }
+
+        .about-education .year {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .about-education p {
+            font-size: clamp(0.7rem, 1vw, 1rem);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Box 4 - Experience */
+        .about-experience {
+            flex: 1;
+            background: linear-gradient(135deg, #e9d5ff, #f3e8ff);
+            border-radius: 10px;
+            padding: 1.5rem;
+            height: 240px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .about-experience:hover {
+            transform: scale(1.03);
+        }
+
+        .about-experience .exp-title {
+            font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .about-row {
+                flex-direction: column;
+            }
+
+            .about-photo-box,
+            .about-skills,
+            .about-education,
+            .about-experience {
+                height: auto;
+                min-height: 200px;
+                /* เพิ่มความสูงขั้นต่ำ */
+            }
+
+            .photo-text {
+                max-width: 80%;
+                position: static;
+                transform: none;
+                padding: 1rem;
+            }
+        }
+
+        .about,
+        .about-photo-text,
+        .photo-text {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+        }
+
+        .fourparagrape {
+            position: relative;
+            z-index: 6;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
 
         .gallery-container {
             border: 1px solid #69acc2;
@@ -1324,7 +1346,8 @@ footer {
                             <div class="about-photo-text">
                                 <h3>Photography</h3>
                                 <p>
-                                    Skilled in capturing authentic moments using natural and studio lighting for events, portraits, and creative projects.
+                                    Skilled in capturing authentic moments using natural and studio lighting for events,
+                                    portraits.
                                 </p>
                             </div>
                             <div class="about-photo-img">
@@ -1586,20 +1609,20 @@ footer {
             });
 
             if (navbar && navbar.length) {
-    Array.from(navbar).forEach(navbar => {
-                navbar.addEventListener('click', e => {
-                    e.preventDefault();
+                Array.from(navbar).forEach(navbar => {
+                    navbar.addEventListener('click', e => {
+                        e.preventDefault();
 
-                    const targetId = navbar.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
+                        const targetId = navbar.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
 
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
-                    navbar.classList.remove('visible');
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                        navbar.classList.remove('visible');
+                    });
                 });
-            });
-        }
+            }
         </script>
 </body>
 
