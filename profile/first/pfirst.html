@@ -61,6 +61,45 @@
             color: #69acc2;
             outline: none;
         }
+                /* Mobile styles */
+        @media screen and (max-width: 600px) {
+            .navbar {
+                padding: 0 10px;
+                height: 45px;
+                transition: all 0.15s ease-in-out;
+            }
+
+            .navbar nav {
+                gap: 8px;
+                transition: gap 0.15s ease-in-out;
+            }
+
+            .navbar nav a {
+                padding: 5px 8px;
+                font-size: 12px;
+                transition: all 0.15s ease-in-out;
+            }
+        }
+
+        /* Very small mobile */
+        @media screen and (max-width: 480px) {
+            .navbar {
+                height: 40px;
+                padding: 0 8px;
+                transition: all 0.1s ease-in-out;
+            }
+
+            .navbar nav {
+                gap: 5px;
+                transition: all 0.15s ease-in-out;
+            }
+
+            .navbar nav a {
+                padding: 4px 6px;
+                font-size: 11px;
+            }
+        }
+
 
 .firstparagrape {
     position: relative;
