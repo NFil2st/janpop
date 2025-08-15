@@ -812,62 +812,99 @@ h1 span {
     background: rgba(255, 255, 255, 0.9);
     padding: 10px 15px;
     border-radius: 6px;
-    max-width: 100%;
+    max-width: 150%;
+    width: 100%;;
     z-index: 1;
     box-shadow:
       0 2px 8px rgba(0, 0, 0, 0.7);
 }
-.info-box p {
-  color: #000;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+/* Info-box hover effect - ขยับลงและขยาย width */
+.Profile > div:hover .info-box {
+    bottom: -5px; /* ขยับลงมา 20px */
+    width: 200px; /* ขยาย width */
+    transform: scale(1.05); /* ขยายเล็กน้อย */
+    background: rgba(255, 255, 255, 0.95); /* เพิ่มความโปร่งใส */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8); /* เพิ่มเงา */
 }
 
+.info-box p {
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin: 0; /* เอา margin ออก */
+    transition: all 0.3s ease; /* เพิ่ม transition ให้ text */
+}
 
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .Profile {
-                gap: 6px;
-            }
-            
-            .Profile > div {
-                width: 90px;
-                height: 150px;
-            }
-            
-            .Profile p:first-child {
-                font-size: 0.8rem;
-            }
-            
-            .Profile p:last-of-type {
-                font-size: 0.7rem;
-            }
-            
-            .Member h1 {
-                font-size: 2.5rem;
-            }
-        }
+/* Text hover effect */
+.Profile > div:hover .info-box p {
+    font-weight: 700; /* ทำให้ตัวหนาขึ้น */
+}
 
-        @media (max-width: 480px) {
-            .Profile {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-            
-            .Profile > div {
-                width: 100px;
-                height: 140px;
-            }
-            
-            .Profile > div::after {
-                display: none;
-            }
-            
-            .Member h1 {
-                font-size: 2rem;
-            }
-        }
+/* Responsive design */
+@media (max-width: 768px) {
+    .Profile {
+        gap: 6px;
+    }
+    
+    .Profile > div {
+        width: 90px;
+        height: 150px;
+    }
+    
+    .info-box {
+        width: 100px;
+        padding: 6px 10px;
+        left: -5px;
+        bottom: -30px;
+    }
+    
+    .Profile > div:hover .info-box {
+        width: 110px;
+        bottom: -3px;
+    }
+    
+    .Profile p:first-child {
+        font-size: 0.8rem;
+    }
+    
+    .Profile p:last-of-type {
+        font-size: 0.7rem;
+    }
+    
+    .Member h1 {
+        font-size: 2.5rem;
+    }
+}
 
+@media (max-width: 480px) {
+    .Profile {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .Profile > div {
+        width: 100px;
+        height: 140px;
+    }
+    
+    .info-box {
+        width: 85px;
+        padding: 5px 8px;
+    }
+    
+    .Profile > div:hover .info-box {
+        width: 120px;
+        bottom: -2px;
+    }
+    
+    .Profile > div::after {
+        display: none;
+    }
+    
+    .Member h1 {
+        font-size: 2rem;
+    }
+}
 
 /* Contact Section */
 .contact-section {
